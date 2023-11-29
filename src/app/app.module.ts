@@ -18,6 +18,7 @@ import { DeviceManagementComponent } from './admin-panel/management/device-manag
 import { NotificationManagementComponent } from './admin-panel/management/notification-management/notification-management.component';
 import { StorageManagementComponent } from './admin-panel/management/storage-management/storage-management.component';
 import { AccessLogsComponent } from './admin-panel/management/access-logs/access-logs.component';
+import { LoginComponent } from './login/login.component';
 
 @NgModule({
   imports: [
@@ -43,6 +44,7 @@ import { AccessLogsComponent } from './admin-panel/management/access-logs/access
     NotificationManagementComponent,
     StorageManagementComponent,
     AccessLogsComponent,
+    LoginComponent,
 
   ],
   providers: [],
