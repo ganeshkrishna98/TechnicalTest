@@ -45,7 +45,6 @@ import { LoginComponent } from './login/login.component';
     StorageManagementComponent,
     AccessLogsComponent,
     LoginComponent,
-
   ],
   providers: [],
   bootstrap: [AppComponent]

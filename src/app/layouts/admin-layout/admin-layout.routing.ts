@@ -2,7 +2,6 @@ import { Routes } from '@angular/router';
 
 import { DashboardComponent } from '../../dashboard/dashboard.component';
 import { UserProfileComponent } from '../../user-profile/user-profile.component';
-import { TableListComponent } from '../../table-list/table-list.component';
 import { NotificationsComponent } from '../../notifications/notifications.component';
 import { CreateDocumentComponent } from 'app/document/create-document/create-document.component';
 import { EditDocumentComponent } from 'app/document/edit-document/edit-document.component';
@@ -19,7 +18,6 @@ import { UserManagementComponent } from 'app/admin-panel/management/user-managem
 export const AdminLayoutRoutes: Routes = [   
     { path: 'dashboard',      component: DashboardComponent },
     { path: 'user-profile',   component: UserProfileComponent },
-    { path: 'table-list',     component: TableListComponent },
     { path: 'notifications',  component: NotificationsComponent },
     { path: 'create-document', component: CreateDocumentComponent},
     { path: 'edit-document', component: EditDocumentComponent},
