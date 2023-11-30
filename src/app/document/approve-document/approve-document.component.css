@@ -1,0 +1,12 @@
+table tbody tr:nth-child(even) {
+    background: rgba(255, 169, 4, 0.5);
+}
+table thead tr{
+    background: rgba(255, 152, 4, 0.8);
+    color: rgba(255, 255, 255, 255);
+}
+table thead tr th:nth-child(1) {width: 10% !important;}
+
+.table-hover tbody tr:hover {
+    background: rgb(214 130 10) !important;
+}

@@ -10,10 +10,12 @@ declare var $: any;
 })
 export class ApproveDocumentComponent implements OnInit {
   title = 'Approve Documents';
+  isSelected: boolean = false;
   constructor(private sharedService: SharedService,private documentService: DocumentService) { 
     this.sharedService.setTitle(this.title);
   }
   tableData: any[] = [];
+  selectedItem: any;
   ngOnInit(): void {
     this.fetchData();
   }
@@ -26,5 +28,13 @@ export class ApproveDocumentComponent implements OnInit {
         console.error('Error fetching data:', error);
       }
     );
+  }
+  getData(data){
+    // on click display the contents of this row in a new card - replace the view with the details
+    // with edit delete download view approve options
+    // table column -> checkbox + select all
+    console.log(data);
+    this.isSelected = true;
+    this.selectedItem = data
   }
 }
