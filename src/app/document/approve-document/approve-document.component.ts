@@ -20,7 +20,7 @@ export class ApproveDocumentComponent implements OnInit {
     this.fetchData();
   }
   fetchData() {
-    this.documentService.getDocument().subscribe(
+    this.documentService.readDocument().subscribe(
       (data: any[]) => {
         this.tableData = data; 
       },

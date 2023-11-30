@@ -7,12 +7,12 @@ import { Observable } from 'rxjs';
 })
 export class DocumentService {
 
-  private apiUrl = 'https://localhost:7028/api';
+  private apiUrl = 'https://localhost:7028/api/document';
 
   constructor(private http:HttpClient) { }
 
-  getDocument(): Observable<any[]> {
-    return this.http.get<any[]>(`${this.apiUrl}/document/get-documents`);
+  readDocument(): Observable<any[]> {
+    return this.http.get<any[]>(`${this.apiUrl}/read-documents`);
   }
   // createDocument(): Observable<any>{
   //   return this.http.post<any>(this.apiUrl + 'create-documents');
