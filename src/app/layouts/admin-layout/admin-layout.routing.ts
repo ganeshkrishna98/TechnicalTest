@@ -14,6 +14,7 @@ import { DeviceManagementComponent } from 'app/admin-panel/management/device-man
 import { NotificationManagementComponent } from 'app/admin-panel/management/notification-management/notification-management.component';
 import { StorageManagementComponent } from 'app/admin-panel/management/storage-management/storage-management.component';
 import { UserManagementComponent } from 'app/admin-panel/management/user-management/user-management.component';
+import { LoginComponent } from 'app/login/login.component';
 
 export const AdminLayoutRoutes: Routes = [   
     { path: 'dashboard',      component: DashboardComponent },
@@ -30,4 +31,5 @@ export const AdminLayoutRoutes: Routes = [
     { path: 'notification-management', component: NotificationManagementComponent},
     { path: 'storage-management', component: StorageManagementComponent},
     { path: 'user-management', component: UserManagementComponent},
+    { path: 'login', component: LoginComponent}
 ];
