@@ -1,59 +1,12 @@
-<div class="main-content">
-    <div class="container-fluid">
-        <div class="card">
-            <div class="col-md-12">
-                <div class="places-buttons">
-                    <div class="row" style="margin-top: 50px;">
-                        <div class="col-lg-8 col-md-10 ml-auto mr-auto">
-                            <div class="row">
-                                <div class="col-md-4">
-                                    <span style="vertical-align: bottom;">User Management</span>
-                                    <button mat-raised-button class="btn btn-danger btn-block"  routerLink="/user-management">
-                                        <i class="material-icons" style="font-size: 50px;">manage_accounts</i>
-                                    </button>
-                                </div>
-                                <div class="col-md-4">
-                                    <span style="vertical-align: bottom;">Database Management</span>
-                                    <button mat-raised-button class="btn btn-danger btn-block"  routerLink="/database-management">                                    
-                                        <i class="material-icons"  style="font-size: 50px;">data_usage</i>
-                                    </button>
-                                </div>
-                                <div class="col-md-4">
-                                    <span style="vertical-align: bottom;">Device Management</span>
-                                    <button mat-raised-button class="btn btn-danger btn-block"  routerLink="/device-management">
-                                        <i class="material-icons" style="font-size: 50px;">devices</i>
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row" style="margin-bottom: 30px;">
-                        <div class="col-lg-8 col-md-10 ml-auto mr-auto">
-                            <div class="row">                                
-                                <div class="col-md-4">
-                                    <span style="vertical-align: bottom;">Notification Management</span>
-                                    <button mat-raised-button class="btn btn-danger btn-block" routerLink="/notification-management">
-                                        <i class="material-icons" style="  font-size: 50px;">notifications</i>
-                                    </button>
-                                </div>
-                                <div class="col-md-4">
-                                    <span style="vertical-align: bottom;">Storage Management</span>
-                                    <button mat-raised-button class="btn btn-danger btn-block"  routerLink="/storage-management">
-                                        <i class="material-icons" style="font-size: 50px;">storage</i>
-                                    </button>
-                                </div>
-                                <div class="col-md-4">
-                                    <span style="vertical-align: bottom;">Access Logs</span>
-                                    <button mat-raised-button class="btn btn-danger btn-block"  routerLink="/access-logs">
-                                        <i class="material-icons" style="font-size: 50px;">key</i>
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+<div class="login-container">
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+      <label>Email:</label>
+      <input type="text" formControlName="email" required>
+  
+      <label>Password:</label>
+      <input type="password" formControlName="password" required>
+  
+      <button type="submit" [disabled]="loginForm.invalid">Login</button>
+    </form>
   </div>
   

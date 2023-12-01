@@ -10,12 +10,21 @@ export class AuthenticationService {
 
   constructor(private http: HttpClient) { }
 
-  login(username: string, password: string): Observable<any> {
-    const body = { username, password };
-    return this.http.post(`${this.apiUrl}/login`, body);
+  login(userEmail: string, password: string): Observable<any> {
+    const loginData = {
+      userEmail: userEmail,
+      password: password
+    };
+    return this.http.post(`${this.apiUrl}/login`, loginData);
   }
   register(userEmail: string, password: string): Observable<any> {
     const body = { userEmail, password };
     return this.http.post(`${this.apiUrl}/register`, body);
+  }
+
+  logout(): Observable<any> {
+    // Implement logout logic, e.g., clearing session, removing tokens, etc.
+    // You may want to communicate with the server to invalidate the user session.
+    return this.http.post(`${this.apiUrl}/logout`, null);
   }
 }
