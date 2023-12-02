@@ -15,9 +15,10 @@ import { NotificationManagementComponent } from 'app/admin-panel/management/noti
 import { StorageManagementComponent } from 'app/admin-panel/management/storage-management/storage-management.component';
 import { UserManagementComponent } from 'app/admin-panel/management/user-management/user-management.component';
 import { LoginComponent } from 'app/login/login.component';
+import { AuthGuard } from 'app/guards/auth.guard';
 
 export const AdminLayoutRoutes: Routes = [   
-    { path: 'dashboard',      component: DashboardComponent },
+    { path: 'dashboard',      component: DashboardComponent,canActivate : [AuthGuard] },
     { path: 'user-profile',   component: UserProfileComponent },
     { path: 'notifications',  component: NotificationsComponent },
     { path: 'create-document', component: CreateDocumentComponent},
