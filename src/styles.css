@@ -1,4 +1,7 @@
 /* You can add global styles to this file, and also import other style files */
+:root{
+
+}
 .tim-typo{
     padding-left: 25%;
     margin-bottom: 40px;
@@ -29,3 +32,46 @@ td {
 .back-button{
     width: 100px;
 }
+.d-flex{
+  display: flex;
+}
+/* padding styles begins */
+.p-small{
+  padding: 0.625rem !important;
+}
+.pl-small{
+  
+  padding-left: 0.625rem !important;
+}
+.pr-small{
+  
+  padding-right: 0.625rem !important;
+}
+/* padding styles ends */
+/* margin styles begins */
+.m-small{
+  margin: 0.625rem !important;
+}
+.ml-small{
+  
+  margin-left: 0.625rem !important;
+}
+.mr-small{
+  
+  margin-right: 0.625rem !important;
+}
+.ml-medium{
+  margin-left: 1rem !important;
+}
+/* margin styles ends */
+/* button styles begins */
+button{
+  font-weight: 500 !important;
+  height: 42px !important;
+  padding: 0.625rem !important;
+  margin: 0!important;
+  text-transform: unset !important;
+  font-size: initial !important;
+  width: 92px !important;
+}
+/* button styles ends */

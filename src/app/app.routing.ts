@@ -1,22 +1,50 @@
 import { NgModule } from '@angular/core';
 import { CommonModule, } from '@angular/common';
-import { BrowserModule  } from '@angular/platform-browser';
+import { BrowserModule } from '@angular/platform-browser';
 import { Routes, RouterModule } from '@angular/router';
 
 import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component';
+import { AdminPanelComponent } from './admin-panel/admin-panel.component';
+import { AccessLogsComponent } from './admin-panel/management/access-logs/access-logs.component';
+import { DatabaseManagementComponent } from './admin-panel/management/database-management/database-management.component';
+import { DeviceManagementComponent } from './admin-panel/management/device-management/device-management.component';
+import { NotificationManagementComponent } from './admin-panel/management/notification-management/notification-management.component';
+import { StorageManagementComponent } from './admin-panel/management/storage-management/storage-management.component';
+import { UserManagementComponent } from './admin-panel/management/user-management/user-management.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { ApproveDocumentComponent } from './document/approve-document/approve-document.component';
+import { CreateDocumentComponent } from './document/create-document/create-document.component';
+import { DeleteDocumentComponent } from './document/delete-document/delete-document.component';
+import { EditDocumentComponent } from './document/edit-document/edit-document.component';
+import { AuthGuard } from './guards/auth.guard';
+import { LoginComponent } from './login/login.component';
+import { NotificationsComponent } from './notifications/notifications.component';
+import { UserProfileComponent } from './user-profile/user-profile.component';
 
-const routes: Routes =[
+const routes: Routes = [
   {
     path: '',
-    redirectTo: 'dashboard',
+    redirectTo: '/dashboard',
     pathMatch: 'full',
-  }, {
-    path: '',
-    component: AdminLayoutComponent,
-    children: [{
-      path: '',
-      loadChildren: () => import('./layouts/admin-layout/admin-layout.module').then(m => m.AdminLayoutModule)
-    }]
+  },
+  { path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuard] },
+  { path: 'user-profile', component: UserProfileComponent },
+  { path: 'notifications', component: NotificationsComponent },
+  { path: 'create-document', component: CreateDocumentComponent },
+  { path: 'edit-document', component: EditDocumentComponent },
+  { path: 'delete-document', component: DeleteDocumentComponent },
+  { path: 'approve-document', component: ApproveDocumentComponent },
+  { path: 'admin-panel', component: AdminPanelComponent },
+  { path: 'access-logs', component: AccessLogsComponent },
+  { path: 'database-management', component: DatabaseManagementComponent },
+  { path: 'device-management', component: DeviceManagementComponent },
+  { path: 'notification-management', component: NotificationManagementComponent },
+  { path: 'storage-management', component: StorageManagementComponent },
+  { path: 'user-management', component: UserManagementComponent },
+  { path: 'login', component: LoginComponent },
+  {
+    path: 'document',
+    loadChildren: () => import('./features/document/document.module').then(m => m.DocumentModule)
   }
 ];
 
@@ -24,8 +52,8 @@ const routes: Routes =[
   imports: [
     CommonModule,
     BrowserModule,
-    RouterModule.forRoot(routes,{
-       useHash: true
+    RouterModule.forRoot(routes, {
+      useHash: true
     })
   ],
   exports: [

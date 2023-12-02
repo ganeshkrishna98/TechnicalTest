@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { API_URLS } from 'app/utils/constants/api.constants';
 
 @Injectable({
   providedIn: 'root'
@@ -14,40 +15,13 @@ export class DocumentService {
   readDocument(): Observable<any[]> {
     return this.http.get<any[]>(`${this.apiUrl}/read-documents`);
   }
-  createDocument(documentId: string, documentName: string, fileName: string, approvalStatus: string, authorUserId: string, authorName: string, lastModifiedUserId: string, lastModifiedUserName: string, lastAccessedUserName: string, lastAccessedUserId: string): Observable<any>{
-    const body = {
-      documentId:documentId,
-      documentName:documentName,
-      fileName:fileName,
-      approvalStatus:approvalStatus,
-      authorUserId:authorUserId,
-      authorName:authorName,
-      lastModifiedUserId:lastModifiedUserId,
-      lastModifiedUserName:lastModifiedUserName,
-      lastAccessedUserName:lastAccessedUserName,
-      lastAccessedUserId:lastAccessedUserId
-    };
-    return this.http.post<any[]>(`${this.apiUrl}/create-documents`,body);
+  createDocument(payload: any): Observable<any>{
+    return this.http.post<any[]>(`${this.apiUrl}/create-documents`,payload);
   }
-  updateDocument(documentId: string, documentName: string, fileName: string, approvalStatus: string, authorUserId: string, authorName: string, lastModifiedUserId: string, lastModifiedUserName: string, lastAccessedUserName: string, lastAccessedUserId: string): Observable<any>{
-    const body = {
-      documentId:documentId,
-      documentName:documentName,
-      fileName:fileName,
-      approvalStatus:approvalStatus,
-      authorUserId:authorUserId,
-      authorName:authorName,
-      lastModifiedUserId:lastModifiedUserId,
-      lastModifiedUserName:lastModifiedUserName,
-      lastAccessedUserName:lastAccessedUserName,
-      lastAccessedUserId:lastAccessedUserId
-    };
-    return this.http.post<any[]>(`${this.apiUrl}/update-documents`,body);
+  updateDocument(payload: any): Observable<any>{
+    return this.http.post(API_URLS.UPDATE_DOC, payload);
   }
-  deleteDocument(documentId: string): Observable<any>{
-    const body = {
-      documentId:documentId
-    };
-    return this.http.post<any[]>(`${this.apiUrl}/delete-documents`,body);
+  deleteDocument(payload: any): Observable<any>{
+    return this.http.post(API_URLS.DELETE_DOC, payload);
   }
 }

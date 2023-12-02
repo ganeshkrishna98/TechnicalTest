@@ -30,8 +30,6 @@ export class ApproveDocumentComponent implements OnInit {
     );
   }
   getData(data){
-    // on click display the contents of this row in a new card - replace the view with the details
-    // with edit delete download view approve options
     // table column -> checkbox + select all
     console.log(data);
     this.isSelected = true;

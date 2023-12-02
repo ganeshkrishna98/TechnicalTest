@@ -12,7 +12,7 @@ export const ROUTES: RouteInfo[] = [
     { path: '/create-document', title: 'Create Document',  icon:'note_add', class: '' },
     { path: '/edit-document', title: 'Edit Document',  icon:'edit_document', class: '' },
     { path: '/delete-document', title: 'Delete Document',  icon:'delete', class: '' },
-    { path: '/approve-document', title: 'Approve Document',  icon:'verified', class: '' },
+    { path: '/document', title: 'Approve Document',  icon:'verified', class: '' },
     { path: '/user-profile', title: 'User Profile',  icon:'person', class: '' },
     { path: '/admin-panel', title: 'Admin Panel',  icon:'admin_panel_settings', class: '' },
 ];
