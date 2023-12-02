@@ -85,14 +85,14 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "buildTarget": "material-dashboard-angular:build"
+            "browserTarget": "material-dashboard-angular:build"
           },
           "configurations": {
             "production": {
-              "buildTarget": "material-dashboard-angular:build:production"
+              "browserTarget": "material-dashboard-angular:build:production"
             },
             "development": {
-              "buildTarget": "material-dashboard-angular:build:development"
+              "browserTarget": "material-dashboard-angular:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -100,7 +100,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "buildTarget": "material-dashboard-angular:build"
+            "browserTarget": "material-dashboard-angular:build"
           }
         },
         "test": {
@@ -167,6 +167,7 @@
       }
     }
   },
+  "defaultProject": "material-dashboard-angular",
   "schematics": {
     "@schematics/angular:component": {
       "prefix": "app",

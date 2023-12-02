@@ -372,21 +372,17 @@ fieldset[disabled] .form-group .form-control{
 
 
 
-.mat-mdc-form-field{
+.mat-form-field{
   display: block !important;
 }
 
 .has-success{
-  /* TODO(mdc-migration): The following rule targets internal classes of form-field that may no longer apply for the MDC version.*/
   .mat-form-field-can-float.mat-form-field-should-float .mat-form-field-label,
   .mat-form-field-empty.mat-form-field-label{
     color: #4caf50;
   }
   &.mat-focused{
-    /* TODO(mdc-migration): The following rule targets internal classes of input that may no longer apply for the MDC version.*/
-    /* TODO(mdc-migration): The following rule targets internal classes of input that may no longer apply for the MDC version.*/
     .mat-input-underline{
-      /* TODO(mdc-migration): The following rule targets internal classes of input that may no longer apply for the MDC version.*/
       .mat-input-ripple{
         background-color: #4caf50;
       }
@@ -395,16 +391,12 @@ fieldset[disabled] .form-group .form-control{
 }
 
 .has-danger{
-  /* TODO(mdc-migration): The following rule targets internal classes of form-field that may no longer apply for the MDC version.*/
   .mat-form-field-can-float.mat-form-field-should-float .mat-form-field-label,
   .mat-form-field-empty.mat-form-field-label{
     color: #f44336;
   }
   &.mat-focused{
-    /* TODO(mdc-migration): The following rule targets internal classes of input that may no longer apply for the MDC version.*/
-    /* TODO(mdc-migration): The following rule targets internal classes of input that may no longer apply for the MDC version.*/
     .mat-input-underline{
-      /* TODO(mdc-migration): The following rule targets internal classes of input that may no longer apply for the MDC version.*/
       .mat-input-ripple{
         background-color: #f44336;
       }
@@ -412,43 +404,34 @@ fieldset[disabled] .form-group .form-control{
   }
 }
 .ng-invalid{
-  /* TODO(mdc-migration): The following rule targets internal classes of form-field that may no longer apply for the MDC version.*/
   &.mat-focused .mat-form-field-label{
     color: #f44336;
   }
 }
 form .ng-valid{
-  /* TODO(mdc-migration): The following rule targets internal classes of form-field that may no longer apply for the MDC version.*/
   &.mat-focused .mat-form-field-label,
   .mat-focused .mat-form-field-label,
   .mat-form-field-label{
     // color: #4caf50;
   }
-    /* TODO(mdc-migration): The following rule targets internal classes of input that may no longer apply for the MDC version.*/
-    /* TODO(mdc-migration): The following rule targets internal classes of input that may no longer apply for the MDC version.*/
     .mat-input-underline{
       // background-color: #4caf50;
       height: 2px;
-      /* TODO(mdc-migration): The following rule targets internal classes of input that may no longer apply for the MDC version.*/
       .mat-input-ripple{
         // background-color: #4caf50;
       }
     }
 
 }
-/* TODO(mdc-migration): The following rule targets internal classes of input that may no longer apply for the MDC version.*/
 .mat-input-placeholder {
     color: rgba(0, 0, 0, 0.38);
 }
-/* TODO(mdc-migration): The following rule targets internal classes of input that may no longer apply for the MDC version.*/
 .mat-input-underline {
     background-color: rgba(0, 0, 0, 0.12);
 }
-/* TODO(mdc-migration): The following rule targets internal classes of input that may no longer apply for the MDC version.*/
 .mat-focused .mat-input-placeholder {
   color: $brand-primary;
 }
-/* TODO(mdc-migration): The following rule targets internal classes of input that may no longer apply for the MDC version.*/
 .mat-input-ripple {
     background-color: $brand-primary;
 }
