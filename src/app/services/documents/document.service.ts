@@ -27,7 +27,7 @@ export class DocumentService {
       lastAccessedUserName:lastAccessedUserName,
       lastAccessedUserId:lastAccessedUserId
     };
-    return this.http.post<any[]>(`${this.apiUrl}create-documents`,body);
+    return this.http.post<any[]>(`${this.apiUrl}/create-documents`,body);
   }
   updateDocument(documentId: string, documentName: string, fileName: string, approvalStatus: string, authorUserId: string, authorName: string, lastModifiedUserId: string, lastModifiedUserName: string, lastAccessedUserName: string, lastAccessedUserId: string): Observable<any>{
     const body = {
@@ -42,12 +42,12 @@ export class DocumentService {
       lastAccessedUserName:lastAccessedUserName,
       lastAccessedUserId:lastAccessedUserId
     };
-    return this.http.post<any[]>(`${this.apiUrl}update-documents`,body);
+    return this.http.post<any[]>(`${this.apiUrl}/update-documents`,body);
   }
   deleteDocument(documentId: string): Observable<any>{
     const body = {
       documentId:documentId
     };
-    return this.http.post<any[]>(`${this.apiUrl}delete-documents`,body);
+    return this.http.post<any[]>(`${this.apiUrl}/delete-documents`,body);
   }
 }
