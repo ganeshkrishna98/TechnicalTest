@@ -24,4 +24,10 @@ export class DocumentService {
   deleteDocument(payload: any): Observable<any>{
     return this.http.post(API_URLS.DELETE_DOC, payload);
   }
+  uploadDocument(payload: any): Observable<any>{
+    return this.http.post(`${this.apiUrl}/upload-documents`,payload);
+  }
+  downloadDocument(payload: any): Observable<any>{
+    return this.http.get(`${this.apiUrl}/download-documents`,payload);
+  }
 }
