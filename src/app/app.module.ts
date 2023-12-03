@@ -8,9 +8,7 @@ import { ComponentsModule } from './components/components.module';
 import { AppComponent } from './app.component';
 import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component';
 import { CreateDocumentComponent } from './document/create-document/create-document.component';
-import { EditDocumentComponent } from './document/edit-document/edit-document.component';
-import { DeleteDocumentComponent } from './document/delete-document/delete-document.component';
-import { ApproveDocumentComponent } from './document/approve-document/approve-document.component';
+import { DocumentManagementComponent } from './document/document-management/document-management.component';
 import { AdminPanelComponent } from './admin-panel/admin-panel.component';
 import { UserManagementComponent } from './admin-panel/management/user-management/user-management.component';
 import { DatabaseManagementComponent } from './admin-panel/management/database-management/database-management.component';
@@ -49,9 +47,7 @@ import { InterceptorService } from './utils/interceptor/interceptor.service';
     AppComponent,
     AdminLayoutComponent,
     CreateDocumentComponent,
-    EditDocumentComponent,
-    DeleteDocumentComponent,
-    ApproveDocumentComponent,
+    DocumentManagementComponent,
     AdminPanelComponent,
     UserManagementComponent,
     DatabaseManagementComponent,

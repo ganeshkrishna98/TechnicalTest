@@ -4,9 +4,7 @@ import { DashboardComponent } from '../../dashboard/dashboard.component';
 import { UserProfileComponent } from '../../user-profile/user-profile.component';
 import { NotificationsComponent } from '../../notifications/notifications.component';
 import { CreateDocumentComponent } from 'app/document/create-document/create-document.component';
-import { EditDocumentComponent } from 'app/document/edit-document/edit-document.component';
-import { DeleteDocumentComponent } from 'app/document/delete-document/delete-document.component';
-import { ApproveDocumentComponent } from 'app/document/approve-document/approve-document.component';
+import { DocumentManagementComponent } from 'app/document/document-management/document-management.component';
 import { AdminPanelComponent } from 'app/admin-panel/admin-panel.component';
 import { AccessLogsComponent } from 'app/admin-panel/management/access-logs/access-logs.component';
 import { DatabaseManagementComponent } from 'app/admin-panel/management/database-management/database-management.component';
@@ -22,9 +20,7 @@ export const AdminLayoutRoutes: Routes = [
     { path: 'user-profile',   component: UserProfileComponent },
     { path: 'notifications',  component: NotificationsComponent },
     { path: 'create-document', component: CreateDocumentComponent},
-    { path: 'edit-document', component: EditDocumentComponent},
-    { path: 'delete-document', component: DeleteDocumentComponent},
-    { path: 'approve-document', component: ApproveDocumentComponent},
+    { path: 'document-management', component: DocumentManagementComponent},
     { path: 'admin-panel', component: AdminPanelComponent},
     { path: 'access-logs', component: AccessLogsComponent},
     { path: 'database-management', component: DatabaseManagementComponent},

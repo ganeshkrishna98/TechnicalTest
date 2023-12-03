@@ -12,10 +12,8 @@ import { NotificationManagementComponent } from './admin-panel/management/notifi
 import { StorageManagementComponent } from './admin-panel/management/storage-management/storage-management.component';
 import { UserManagementComponent } from './admin-panel/management/user-management/user-management.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
-import { ApproveDocumentComponent } from './document/approve-document/approve-document.component';
+import { DocumentManagementComponent } from './document/document-management/document-management.component';
 import { CreateDocumentComponent } from './document/create-document/create-document.component';
-import { DeleteDocumentComponent } from './document/delete-document/delete-document.component';
-import { EditDocumentComponent } from './document/edit-document/edit-document.component';
 import { AuthGuard } from './guards/auth.guard';
 import { LoginComponent } from './login/login.component';
 import { NotificationsComponent } from './notifications/notifications.component';
@@ -31,9 +29,7 @@ const routes: Routes = [
   { path: 'user-profile', component: UserProfileComponent },
   { path: 'notifications', component: NotificationsComponent },
   { path: 'create-document', component: CreateDocumentComponent },
-  { path: 'edit-document', component: EditDocumentComponent },
-  { path: 'delete-document', component: DeleteDocumentComponent },
-  { path: 'approve-document', component: ApproveDocumentComponent },
+  { path: 'document-management', component: DocumentManagementComponent },
   { path: 'admin-panel', component: AdminPanelComponent },
   { path: 'access-logs', component: AccessLogsComponent },
   { path: 'database-management', component: DatabaseManagementComponent },

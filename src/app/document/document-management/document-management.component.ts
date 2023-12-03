@@ -4,12 +4,12 @@ import { DocumentService } from 'app/services/documents/document.service';
 
 declare var $: any;
 @Component({
-  selector: 'app-approve-document',
-  templateUrl: './approve-document.component.html',
-  styleUrls: ['./approve-document.component.css']
+  selector: 'app-document-management',
+  templateUrl: './document-management.component.html',
+  styleUrls: ['./document-management.component.css']
 })
-export class ApproveDocumentComponent implements OnInit {
-  title = 'Approve Documents';
+export class DocumentManagementComponent implements OnInit {
+  title = 'Document Management';
   isSelected: boolean = false;
   constructor(private sharedService: SharedService,private documentService: DocumentService) { 
     this.sharedService.setTitle(this.title);
