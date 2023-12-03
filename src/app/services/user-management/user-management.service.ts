@@ -1,25 +1,25 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { API_URLS } from 'app/utils/constants/api.constants';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserManagementService {
-  private apiUrl = 'https://localhost:7028/api/user-management';
-
+  
   constructor(private http:HttpClient) { }
 
   readUsers(): Observable<any[]> {
-    return this.http.get<any[]>(`${this.apiUrl}/read-users`);
+    return this.http.get<any[]>(API_URLS.READ_USERS);
   }
   createUsers(payload: any): Observable<any>{
-    return this.http.post<any[]>(`${this.apiUrl}/create-users`,payload);
+    return this.http.post<any[]>(API_URLS.CREATE_USERS,payload);
   }
   updateUsers(payload: any): Observable<any>{
-    return this.http.post(`${this.apiUrl}/update-users`,payload);
+    return this.http.post(API_URLS.UPDATE_USERS,payload);
   }
   deleteUsers(payload: any): Observable<any>{
-    return this.http.post(`${this.apiUrl}/delete-users`,payload);
+    return this.http.post(API_URLS.DELETE_USERS,payload);
   }
 }

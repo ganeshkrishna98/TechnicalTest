@@ -1,25 +1,25 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { API_URLS } from 'app/utils/constants/api.constants';
 
 @Injectable({
   providedIn: 'root'
 })
 export class DeviceManagementService {
-  private apiUrl = 'https://localhost:7028/api/device-management';
-
+  
   constructor(private http:HttpClient) { }
 
   readDevices(): Observable<any[]> {
-    return this.http.get<any[]>(`${this.apiUrl}/read-devices`);
+    return this.http.get<any[]>(API_URLS.READ_DEVICES);
   }
   createDevices(payload: any): Observable<any>{
-    return this.http.post<any[]>(`${this.apiUrl}/create-devices`,payload);
+    return this.http.post<any[]>(API_URLS.CREATE_DEVICES,payload);
   }
   updateDevices(payload: any): Observable<any>{
-    return this.http.post(`${this.apiUrl}/update-devices`,payload);
+    return this.http.post(API_URLS.UPDATE_DEVICES,payload);
   }
   deleteDevices(payload: any): Observable<any>{
-    return this.http.post(`${this.apiUrl}/delete-devices`,payload);
+    return this.http.post(API_URLS.DELETE_DEVICES,payload);
   }
 }

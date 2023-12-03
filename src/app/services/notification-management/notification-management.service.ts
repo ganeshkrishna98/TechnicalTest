@@ -1,25 +1,25 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { API_URLS } from 'app/utils/constants/api.constants';
 
 @Injectable({
   providedIn: 'root'
 })
 export class NotificationManagementService {
-  private apiUrl = 'https://localhost:7028/api/notification-management';
-
+  
   constructor(private http:HttpClient) { }
 
   readNotifications(): Observable<any[]> {
-    return this.http.get<any[]>(`${this.apiUrl}/read-notifications`);
+    return this.http.get<any[]>(API_URLS.READ_NOTIFICATIONS);
   }
   createNotifications(payload: any): Observable<any>{
-    return this.http.post<any[]>(`${this.apiUrl}/create-notifications`,payload);
+    return this.http.post<any[]>(API_URLS.CREATE_NOTIFICATIONS,payload);
   }
   updateNotifications(payload: any): Observable<any>{
-    return this.http.post(`${this.apiUrl}/update-notifications`,payload);
+    return this.http.post(API_URLS.UPDATE_NOTIFICATIONS,payload);
   }
   deleteNotifications(payload: any): Observable<any>{
-    return this.http.post(`${this.apiUrl}/delete-notifications`,payload);
+    return this.http.post(API_URLS.DELETE_NOTIFICATIONS,payload);
   }
 }

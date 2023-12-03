@@ -8,15 +8,13 @@ import { API_URLS } from 'app/utils/constants/api.constants';
 })
 export class DocumentService {
 
-  private apiUrl = 'https://localhost:7028/api/document';
-
   constructor(private http:HttpClient) { }
 
   readDocument(): Observable<any[]> {
-    return this.http.get<any[]>(`${this.apiUrl}/read-documents`);
+    return this.http.get<any[]>(API_URLS.READ_DOC);
   }
   createDocument(payload: any): Observable<any>{
-    return this.http.post<any[]>(`${this.apiUrl}/create-documents`,payload);
+    return this.http.post<any[]>(API_URLS.CREATE_DOC,payload);
   }
   updateDocument(payload: any): Observable<any>{
     return this.http.post(API_URLS.UPDATE_DOC, payload);
@@ -25,9 +23,9 @@ export class DocumentService {
     return this.http.post(API_URLS.DELETE_DOC, payload);
   }
   uploadDocument(payload: any): Observable<any>{
-    return this.http.post(`${this.apiUrl}/upload-documents`,payload);
+    return this.http.post(API_URLS.UPLOAD_DOC,payload);
   }
   downloadDocument(payload: any): Observable<any>{
-    return this.http.get(`${this.apiUrl}/download-documents`,payload);
+    return this.http.get(API_URLS.DOWNLOAD_DOC,payload);
   }
 }
