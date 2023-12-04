@@ -6,131 +6,128 @@
                     <div class="card-header card-header-danger">
                         <h4 class="card-title ">Access Logs</h4>                        
                     </div>
-                    <div class="card-body">
-                        <div class="table-responsive">
-                            <table class="table">
-                                <thead class=" text-primary">
+                    <div class="card-body table-responsive" *ngIf="!isSelected">
+                        <table class="document-table table-hover document-table">
+                            <thead class="text-warning">
+                                <tr>
                                     <th>
-                                        ID
+                                        <p>ID</p>
                                     </th>
                                     <th>
-                                        Name
+                                        <p>Email</p>
                                     </th>
                                     <th>
-                                        Country
+                                        <p>Name</p>
                                     </th>
                                     <th>
-                                        City
+                                        <p>Device</p>
                                     </th>
                                     <th>
-                                        Salary
+                                        <p>Account Type</p>
                                     </th>
-                                </thead>
+                                    <!-- <th><input type="checkbox" name="selectAll" id="selectAll"></th> -->
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let item of tableData" (click)="getData(item)">
+                                    <td>{{ item.userId }}</td>
+                                    <td>{{ item.userEmail }}</td>
+                                    <td>{{ item.userName }}</td>
+                                    <td>{{ item.accessTime }}</td>
+                                    <td>{{ item.accessIp }}</td>
+                                    <!-- <td><input type="checkbox" name="checkbox" id="checkbox"></td> -->
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div *ngIf="isSelected">
+                        <div class="card-body table-responsive" *ngIf="isSelected">
+                            <table class="detail-table" *ngIf="!documentForm.value.documentId">
                                 <tbody>
                                     <tr>
-                                        <td>
-                                            1
-                                        </td>
-                                        <td>
-                                            Dakota Rice
-                                        </td>
-                                        <td>
-                                            Niger
-                                        </td>
-                                        <td>
-                                            Oud-Turnhout
-                                        </td>
-                                        <td class="text-primary">
-                                            $36,738
-                                        </td>
+                                        <td>Doc Id</td>
+                                        <td>&#58;</td>
+                                        <td>{{ selectedItem?.documentId }}</td>
                                     </tr>
                                     <tr>
-                                        <td>
-                                            2
-                                        </td>
-                                        <td>
-                                            Minerva Hooper
-                                        </td>
-                                        <td>
-                                            Curaçao
-                                        </td>
-                                        <td>
-                                            Sinaai-Waas
-                                        </td>
-                                        <td class="text-primary">
-                                            $23,789
-                                        </td>
+                                        <td>Doc Name</td>
+                                        <td>&#58;</td>
+                                        <td>{{ selectedItem?.documentName }}</td>
                                     </tr>
                                     <tr>
-                                        <td>
-                                            3
-                                        </td>
-                                        <td>
-                                            Sage Rodriguez
-                                        </td>
-                                        <td>
-                                            Netherlands
-                                        </td>
-                                        <td>
-                                            Baileux
-                                        </td>
-                                        <td class="text-primary">
-                                            $56,142
-                                        </td>
+                                        <td>File Name</td>
+                                        <td>&#58;</td>
+                                        <td>{{ selectedItem?.fileName }}</td>
                                     </tr>
                                     <tr>
-                                        <td>
-                                            4
-                                        </td>
-                                        <td>
-                                            Philip Chaney
-                                        </td>
-                                        <td>
-                                            Korea, South
-                                        </td>
-                                        <td>
-                                            Overland Park
-                                        </td>
-                                        <td class="text-primary">
-                                            $38,735
-                                        </td>
+                                        <td>Approval Status</td>
+                                        <td>&#58;</td>
+                                        <td>{{ selectedItem?.approvalStatus }}</td>
                                     </tr>
                                     <tr>
-                                        <td>
-                                            5
-                                        </td>
-                                        <td>
-                                            Doris Greene
-                                        </td>
-                                        <td>
-                                            Malawi
-                                        </td>
-                                        <td>
-                                            Feldkirchen in Kärnten
-                                        </td>
-                                        <td class="text-primary">
-                                            $63,542
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            6
-                                        </td>
-                                        <td>
-                                            Mason Porter
-                                        </td>
-                                        <td>
-                                            Chile
-                                        </td>
-                                        <td>
-                                            Gloucester
-                                        </td>
-                                        <td class="text-primary">
-                                            $78,615
-                                        </td>
+                                        <td>Author Name</td>
+                                        <td>&#58;</td>
+                                        <td>{{ selectedItem?.authorName }}</td>
                                     </tr>
                                 </tbody>
                             </table>
+                            <form *ngIf="documentForm.value.documentId" [formGroup]="documentForm">
+                                <table class="detail-table">
+                                    <tr>
+                                        <td>Doc Id</td>
+                                        <td>&#58;</td>
+                                        <td>
+                                            <input type="text" class="form-control" id="documentId"
+                                                formControlName="documentId" />
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Doc Name</td>
+                                        <td>&#58;</td>
+                                        <td>
+                                            <input type="text" class="form-control" id="documentName"
+                                                formControlName="documentName" />
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>File Name</td>
+                                        <td>&#58;</td>
+                                        <td>
+                                            <input type="text" class="form-control" id="fileName"
+                                                formControlName="fileName" />
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Approval Status</td>
+                                        <td>&#58;</td>
+                                        <td>
+                                            <input type="text" class="form-control" id="approvalStatus"
+                                                formControlName="approvalStatus" />
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Author Name</td>
+                                        <td>&#58;</td>
+                                        <td>
+                                            <input type="text" class="form-control" id="authorName"
+                                                formControlName="authorName" />
+                                        </td>
+                                    </tr>
+                                </table>
+                            </form>
+                            <div class="action-button-wrapper">
+                                <div class="d-flex">
+                                    <button class="btn btn-warning btn-block" (click)="isSelected=false">Back</button>
+                                    <button class="btn btn-warning btn-block ml-small"
+                                        (click)="updateDocument()">Edit</button>
+                                    <button class="btn btn-warning btn-block ml-small"
+                                        (click)="deleteDocument()">Delete</button>
+                                    <button class="btn btn-warning btn-block ml-small">Download</button>
+                                    <button class="btn btn-warning btn-block ml-small">View</button>
+                                    <button class="btn btn-warning btn-block ml-small">Approve</button>
+                                </div>
+                            </div>
+
                         </div>
                     </div>
                 </div>
