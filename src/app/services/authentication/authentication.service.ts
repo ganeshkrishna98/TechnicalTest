@@ -15,8 +15,7 @@ export class AuthenticationService {
       userEmail: userEmail,
       password: password
     };
-    localStorage.setItem('isLoggedIn', "true");  
-    localStorage.setItem('token', userEmail);
+    localStorage.setItem('isLoggedIn', "true");      
     return this.http.post(`${this.apiUrl}/login`, loginData);
   }
   register(userEmail: string, password: string): Observable<any> {
