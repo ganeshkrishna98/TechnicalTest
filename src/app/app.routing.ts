@@ -56,6 +56,10 @@ const routes: Routes = [
   {
     path: 'document',
     loadChildren: () => import('./features/document/document.module').then(m => m.DocumentModule)
+  },
+  {
+    path: 'register',
+    loadChildren: () => import('./features/register/register.module').then(m => m.RegisterModule)
   }
 ];
 

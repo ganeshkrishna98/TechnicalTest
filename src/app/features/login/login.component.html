@@ -8,7 +8,8 @@
       <input type="password" formControlName="password" required>
   
       <button type="submit" class="btn btn-warning btn-block ml-small" [disabled]="loginForm.invalid">Login</button>
-      <button type="register" class="btn btn-warning btn-block ml-small">Register</button>
+      
     </form>
+    <button type="register" class="btn btn-warning btn-block ml-small" [routerLink]="['/register']">Register</button>
   </div>
 </div>
