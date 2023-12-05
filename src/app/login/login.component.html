@@ -1,3 +1,4 @@
+<div class="card">
 <div class="login-container">
     <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
       <label>Email:</label>
@@ -6,7 +7,8 @@
       <label>Password:</label>
       <input type="password" formControlName="password" required>
   
-      <button type="submit" [disabled]="loginForm.invalid">Login</button>
+      <button type="submit" class="btn btn-warning btn-block ml-small" [disabled]="loginForm.invalid">Login</button>
+      <button type="register" class="btn btn-warning btn-block ml-small">Register</button>
     </form>
   </div>
-  
+</div>
