@@ -3,7 +3,6 @@ import { CommonModule, } from '@angular/common';
 import { BrowserModule } from '@angular/platform-browser';
 import { Routes, RouterModule } from '@angular/router';
 
-import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component';
 import { AdminPanelComponent } from './features/admin-panel/admin-panel.component';
 import { AccessLogsComponent } from './features/admin-panel/management/access-logs/access-logs.component';
 import { DatabaseManagementComponent } from './features/admin-panel/management/database-management/database-management.component';
