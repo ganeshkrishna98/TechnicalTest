@@ -16,7 +16,7 @@ import { DeviceManagementComponent } from './admin-panel/management/device-manag
 import { NotificationManagementComponent } from './admin-panel/management/notification-management/notification-management.component';
 import { StorageManagementComponent } from './admin-panel/management/storage-management/storage-management.component';
 import { AccessLogsComponent } from './admin-panel/management/access-logs/access-logs.component';
-import { LoginComponent } from './login/login.component';
+import { LoginComponent } from './features/login/login.component';
 import { MatButtonModule } from '@angular/material/button';
 import { MatRippleModule } from '@angular/material/core';
 import { MatFormFieldModule } from '@angular/material/form-field';

@@ -1,8 +1,8 @@
 import { Routes } from '@angular/router';
 
 import { DashboardComponent } from '../../features/dashboard/dashboard.component';
-import { UserProfileComponent } from '../../user-profile/user-profile.component';
-import { NotificationsComponent } from '../../notifications/notifications.component';
+import { UserProfileComponent } from '../../features/user-profile/user-profile.component';
+import { NotificationsComponent } from '../../features/notifications/notifications.component';
 import { CreateDocumentComponent } from 'app/document/create-document/create-document.component';
 import { DocumentManagementComponent } from 'app/document/document-management/document-management.component';
 import { AdminPanelComponent } from 'app/admin-panel/admin-panel.component';
@@ -12,7 +12,7 @@ import { DeviceManagementComponent } from 'app/admin-panel/management/device-man
 import { NotificationManagementComponent } from 'app/admin-panel/management/notification-management/notification-management.component';
 import { StorageManagementComponent } from 'app/admin-panel/management/storage-management/storage-management.component';
 import { UserManagementComponent } from 'app/admin-panel/management/user-management/user-management.component';
-import { LoginComponent } from 'app/login/login.component';
+import { LoginComponent } from 'app/features/login/login.component';
 import { AuthGuard } from 'app/guards/auth.guard';
 
 export const AdminLayoutRoutes: Routes = [   

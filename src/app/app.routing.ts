@@ -15,9 +15,9 @@ import { DashboardComponent } from './features/dashboard/dashboard.component';
 import { DocumentManagementComponent } from './document/document-management/document-management.component';
 import { CreateDocumentComponent } from './document/create-document/create-document.component';
 import { AuthGuard } from './guards/auth.guard';
-import { LoginComponent } from './login/login.component';
-import { NotificationsComponent } from './notifications/notifications.component';
-import { UserProfileComponent } from './user-profile/user-profile.component';
+import { LoginComponent } from './features/login/login.component';
+import { NotificationsComponent } from './features/notifications/notifications.component';
+import { UserProfileComponent } from './features/user-profile/user-profile.component';
 
 const routes: Routes = [
   {
