@@ -4,7 +4,6 @@ import { CommonModule } from '@angular/common';
 import { DocumentRoutingModule } from './document-routing.module';
 import { DocumentComponent } from './document.component';
 
-
 @NgModule({
   declarations: [
     DocumentComponent
