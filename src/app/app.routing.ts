@@ -3,20 +3,9 @@ import { CommonModule, } from '@angular/common';
 import { BrowserModule } from '@angular/platform-browser';
 import { Routes, RouterModule } from '@angular/router';
 
-import { AdminPanelComponent } from './features/admin-panel/admin-panel.component';
-import { AccessLogsComponent } from './features/admin-panel/management/access-logs/access-logs.component';
-import { DatabaseManagementComponent } from './features/admin-panel/management/database-management/database-management.component';
-import { DeviceManagementComponent } from './features/admin-panel/management/device-management/device-management.component';
-import { NotificationManagementComponent } from './features/admin-panel/management/notification-management/notification-management.component';
-import { StorageManagementComponent } from './features/admin-panel/management/storage-management/storage-management.component';
-import { UserManagementComponent } from './features/admin-panel/management/user-management/user-management.component';
-import { DashboardComponent } from './features/dashboard/dashboard.component';
 import { DocumentManagementComponent } from './document/document-management/document-management.component';
 import { CreateDocumentComponent } from './document/create-document/create-document.component';
 import { AuthGuard } from './guards/auth.guard';
-import { LoginComponent } from './features/login/login.component';
-import { NotificationsComponent } from './features/notifications/notifications.component';
-import { UserProfileComponent } from './features/user-profile/user-profile.component';
 
 const routes: Routes = [
   {
