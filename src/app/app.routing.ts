@@ -11,7 +11,7 @@ import { DeviceManagementComponent } from './admin-panel/management/device-manag
 import { NotificationManagementComponent } from './admin-panel/management/notification-management/notification-management.component';
 import { StorageManagementComponent } from './admin-panel/management/storage-management/storage-management.component';
 import { UserManagementComponent } from './admin-panel/management/user-management/user-management.component';
-import { DashboardComponent } from './dashboard/dashboard.component';
+import { DashboardComponent } from './features/dashboard/dashboard.component';
 import { DocumentManagementComponent } from './document/document-management/document-management.component';
 import { CreateDocumentComponent } from './document/create-document/create-document.component';
 import { AuthGuard } from './guards/auth.guard';
