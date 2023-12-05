@@ -15,6 +15,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { InterceptorService } from './utils/interceptor/interceptor.service';
+import { RegisterComponent } from './features/register/register.component';
 
 @NgModule({
   imports: [
@@ -37,7 +38,8 @@ import { InterceptorService } from './utils/interceptor/interceptor.service';
   declarations: [
     AppComponent,
     CreateDocumentComponent,
-    DocumentManagementComponent,    
+    DocumentManagementComponent,
+    RegisterComponent,
   ],
   providers: [
     {

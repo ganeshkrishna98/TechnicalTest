@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "material-dashboard-angular": {
+    "technical-test": {
       "root": "",
       "sourceRoot": "src",
       "projectType": "application",
@@ -85,14 +85,14 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "material-dashboard-angular:build"
+            "browserTarget": "technical-test:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "material-dashboard-angular:build:production"
+              "browserTarget": "technical-test:build:production"
             },
             "development": {
-              "browserTarget": "material-dashboard-angular:build:development"
+              "browserTarget": "technical-test:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -100,7 +100,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "material-dashboard-angular:build"
+            "browserTarget": "technical-test:build"
           }
         },
         "test": {
@@ -143,7 +143,7 @@
         }
       }
     },
-    "material-dashboard-angular-e2e": {
+    "technical-test-e2e": {
       "root": "",
       "sourceRoot": "",
       "projectType": "application",
@@ -152,7 +152,7 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "./protractor.conf.js",
-            "devServerTarget": "material-dashboard-angular:serve"
+            "devServerTarget": "technical-test:serve"
           }
         },
         "lint": {
@@ -167,10 +167,11 @@
       }
     }
   },
+  "defaultProject": "technical-test",
   "schematics": {
     "@schematics/angular:component": {
       "prefix": "app",
-      "style": "scss"
+      "style": "css"
     },
     "@schematics/angular:directive": {
       "prefix": "app"
