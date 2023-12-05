@@ -42,75 +42,114 @@
                     </div>
                     <div *ngIf="isSelected">
                         <div class="card-body table-responsive" *ngIf="isSelected">
-                            <table class="detail-table" *ngIf="!documentForm.value.documentId">
+                            <table class="detail-table" *ngIf="!deviceForm.value.deviceId">
                                 <tbody>
                                     <tr>
-                                        <td>Doc Id</td>
+                                        <td>Id</td>
                                         <td>&#58;</td>
-                                        <td>{{ selectedItem?.documentId }}</td>
+                                        <td>{{ selectedItem?.deviceId }}</td>
                                     </tr>
                                     <tr>
-                                        <td>Doc Name</td>
+                                        <td>Device Name</td>
                                         <td>&#58;</td>
-                                        <td>{{ selectedItem?.documentName }}</td>
+                                        <td>{{ selectedItem?.deviceName }}</td>
                                     </tr>
                                     <tr>
-                                        <td>File Name</td>
+                                        <td>Device Type</td>
                                         <td>&#58;</td>
-                                        <td>{{ selectedItem?.fileName }}</td>
+                                        <td>{{ selectedItem?.deviceType }}</td>
                                     </tr>
                                     <tr>
-                                        <td>Approval Status</td>
+                                        <td>Device Os</td>
                                         <td>&#58;</td>
-                                        <td>{{ selectedItem?.approvalStatus }}</td>
+                                        <td>{{ selectedItem?.deviceOs }}</td>
                                     </tr>
                                     <tr>
-                                        <td>Author Name</td>
+                                        <td>User Id</td>
                                         <td>&#58;</td>
-                                        <td>{{ selectedItem?.authorName }}</td>
+                                        <td>{{ selectedItem?.userId }}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>User Name</td>
+                                        <td>&#58;</td>
+                                        <td>{{ selectedItem?.userName }}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Last Accessed Date</td>
+                                        <td>&#58;</td>
+                                        <td>{{ selectedItem?.lastAccessedDate }}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Last Accessed Time</td>
+                                        <td>&#58;</td>
+                                        <td>{{ selectedItem?.lastAccessedTime }}</td>
                                     </tr>
                                 </tbody>
                             </table>
-                            <form *ngIf="documentForm.value.documentId" [formGroup]="documentForm">
+                            <form *ngIf="deviceForm.value.deviceId" [formGroup]="deviceForm">
                                 <table class="detail-table">
                                     <tr>
-                                        <td>Doc Id</td>
+                                        <td>Id</td>
                                         <td>&#58;</td>
                                         <td>
-                                            <input type="text" class="form-control" id="documentId"
-                                                formControlName="documentId" />
+                                            <input type="text" class="form-control" id="deviceId"
+                                                formControlName="deviceId" />
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td>Doc Name</td>
+                                        <td>Device Name</td>
                                         <td>&#58;</td>
                                         <td>
-                                            <input type="text" class="form-control" id="documentName"
-                                                formControlName="documentName" />
+                                            <input type="text" class="form-control" id="deviceName"
+                                                formControlName="deviceName" />
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td>File Name</td>
+                                        <td>Device Type</td>
                                         <td>&#58;</td>
                                         <td>
-                                            <input type="text" class="form-control" id="fileName"
-                                                formControlName="fileName" />
+                                            <input type="text" class="form-control" id="deviceType"
+                                                formControlName="deviceType" />
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td>Approval Status</td>
+                                        <td>Device Os</td>
                                         <td>&#58;</td>
                                         <td>
-                                            <input type="text" class="form-control" id="approvalStatus"
-                                                formControlName="approvalStatus" />
+                                            <input type="text" class="form-control" id="deviceOs"
+                                                formControlName="deviceOs" />
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td>Author Name</td>
+                                        <td>User Id</td>
                                         <td>&#58;</td>
                                         <td>
-                                            <input type="text" class="form-control" id="authorName"
-                                                formControlName="authorName" />
+                                            <input type="text" class="form-control" id="userId"
+                                                formControlName="userId" />
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>User Name</td>
+                                        <td>&#58;</td>
+                                        <td>
+                                            <input type="text" class="form-control" id="userName"
+                                                formControlName="userName" />
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Last Accessed Date</td>
+                                        <td>&#58;</td>
+                                        <td>
+                                            <input type="text" class="form-control" id="lastAccessedDate"
+                                                formControlName="lastAccessedDate" />
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Last Accessed Time</td>
+                                        <td>&#58;</td>
+                                        <td>
+                                            <input type="text" class="form-control" id="lastAccessedTime"
+                                                formControlName="lastAccessedTime" />
                                         </td>
                                     </tr>
                                 </table>

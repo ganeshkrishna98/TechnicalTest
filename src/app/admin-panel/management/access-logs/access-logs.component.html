@@ -20,10 +20,10 @@
                                         <p>Name</p>
                                     </th>
                                     <th>
-                                        <p>Device</p>
+                                        <p>Access Time</p>
                                     </th>
                                     <th>
-                                        <p>Account Type</p>
+                                        <p>Access Ip</p>
                                     </th>
                                     <!-- <th><input type="checkbox" name="selectAll" id="selectAll"></th> -->
                                 </tr>
@@ -42,75 +42,100 @@
                     </div>
                     <div *ngIf="isSelected">
                         <div class="card-body table-responsive" *ngIf="isSelected">
-                            <table class="detail-table" *ngIf="!documentForm.value.documentId">
+                            <table class="detail-table" *ngIf="!accessLogsForm.value.userId">
                                 <tbody>
                                     <tr>
-                                        <td>Doc Id</td>
+                                        <td>Id</td>
                                         <td>&#58;</td>
-                                        <td>{{ selectedItem?.documentId }}</td>
+                                        <td>{{ selectedItem?.userId }}</td>
                                     </tr>
                                     <tr>
-                                        <td>Doc Name</td>
+                                        <td>Email</td>
                                         <td>&#58;</td>
-                                        <td>{{ selectedItem?.documentName }}</td>
+                                        <td>{{ selectedItem?.userEmail }}</td>
                                     </tr>
                                     <tr>
-                                        <td>File Name</td>
+                                        <td>Name</td>
                                         <td>&#58;</td>
-                                        <td>{{ selectedItem?.fileName }}</td>
+                                        <td>{{ selectedItem?.userName }}</td>
                                     </tr>
                                     <tr>
-                                        <td>Approval Status</td>
+                                        <td>Access Time</td>
                                         <td>&#58;</td>
-                                        <td>{{ selectedItem?.approvalStatus }}</td>
+                                        <td>{{ selectedItem?.accessTime }}</td>
                                     </tr>
                                     <tr>
-                                        <td>Author Name</td>
+                                        <td>Access Date</td>
                                         <td>&#58;</td>
-                                        <td>{{ selectedItem?.authorName }}</td>
+                                        <td>{{ selectedItem?.accessDate }}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Access Device</td>
+                                        <td>&#58;</td>
+                                        <td>{{ selectedItem?.accessDevice }}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Access Ip</td>
+                                        <td>&#58;</td>
+                                        <td>{{ selectedItem?.accessIp }}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Accessed Document Id</td>
+                                        <td>&#58;</td>
+                                        <td>{{ selectedItem?.accessedDocumentId }}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Accessed Document Name</td>
+                                        <td>&#58;</td>
+                                        <td>{{ selectedItem?.accessedDocumentName }}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Action Performed</td>
+                                        <td>&#58;</td>
+                                        <td>{{ selectedItem?.actionPerformed }}</td>
                                     </tr>
                                 </tbody>
                             </table>
-                            <form *ngIf="documentForm.value.documentId" [formGroup]="documentForm">
+                            <form *ngIf="accessLogsForm.value.userId" [formGroup]="accessLogsForm">
                                 <table class="detail-table">
                                     <tr>
-                                        <td>Doc Id</td>
+                                        <td>Id</td>
                                         <td>&#58;</td>
                                         <td>
-                                            <input type="text" class="form-control" id="documentId"
-                                                formControlName="documentId" />
+                                            <input type="text" class="form-control" id="userId"
+                                                formControlName="userId" />
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td>Doc Name</td>
+                                        <td>Email</td>
                                         <td>&#58;</td>
                                         <td>
-                                            <input type="text" class="form-control" id="documentName"
-                                                formControlName="documentName" />
+                                            <input type="text" class="form-control" id="userEmail"
+                                                formControlName="userEmail" />
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td>File Name</td>
+                                        <td>Name</td>
                                         <td>&#58;</td>
                                         <td>
-                                            <input type="text" class="form-control" id="fileName"
-                                                formControlName="fileName" />
+                                            <input type="text" class="form-control" id="userName"
+                                                formControlName="userName" />
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td>Approval Status</td>
+                                        <td>Access Time</td>
                                         <td>&#58;</td>
                                         <td>
-                                            <input type="text" class="form-control" id="approvalStatus"
-                                                formControlName="approvalStatus" />
+                                            <input type="text" class="form-control" id="accessTime"
+                                                formControlName="accessTime" />
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td>Author Name</td>
+                                        <td>Access Ip</td>
                                         <td>&#58;</td>
                                         <td>
-                                            <input type="text" class="form-control" id="authorName"
-                                                formControlName="authorName" />
+                                            <input type="text" class="form-control" id="accessIp"
+                                                formControlName="accessIp" />
                                         </td>
                                     </tr>
                                 </table>

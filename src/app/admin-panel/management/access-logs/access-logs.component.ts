@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { SharedService } from 'app/services/shared/shared.service';
 import { AccessLogsService } from 'app/services/access-logs/access-logs.service';
+import { FormControl, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-access-logs',
@@ -9,6 +10,18 @@ import { AccessLogsService } from 'app/services/access-logs/access-logs.service'
 })
 export class AccessLogsComponent implements OnInit {
   title = 'Access Logs';
+  accessLogsForm = new FormGroup({
+    userId: new FormControl(''),
+    userEmail: new FormControl(''),
+    userName: new FormControl(''),
+    accessTime: new FormControl(''),
+    accessDate: new FormControl(''),
+    accessDevice: new FormControl(''),
+    accessIp: new FormControl(''),
+    accessedDocumentId: new FormControl(''),
+    accessedDocumentName: new FormControl(''),
+    actionPerformed: new FormControl('')
+  });
   constructor(private sharedService: SharedService, private accessLogsService: AccessLogsService) { 
     this.sharedService.setTitle(this.title);
   }

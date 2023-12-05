@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { SharedService } from 'app/services/shared/shared.service';
 import { DeviceManagementService } from 'app/services/device-management/device-management.service';
+import { FormControl, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-device-management',
@@ -9,6 +10,16 @@ import { DeviceManagementService } from 'app/services/device-management/device-m
 })
 export class DeviceManagementComponent implements OnInit {
   title = 'Device Management';
+  deviceForm = new FormGroup({
+    deviceId: new FormControl(''),
+    deviceName: new FormControl(''),
+    deviceType: new FormControl(''),
+    deviceOs: new FormControl(''),
+    userId: new FormControl(''),
+    userName: new FormControl(''),
+    lastAccessedDate: new FormControl(''),
+    lastAccessedTime: new FormControl('')
+  });
   constructor(private sharedService: SharedService, private deviceManagementService: DeviceManagementService) { 
     this.sharedService.setTitle(this.title);
   }

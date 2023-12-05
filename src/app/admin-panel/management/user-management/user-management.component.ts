@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { SharedService } from 'app/services/shared/shared.service';
 import { UserManagementService } from 'app/services/user-management/user-management.service';
+import { FormControl, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-user-management',
@@ -9,6 +10,15 @@ import { UserManagementService } from 'app/services/user-management/user-managem
 })
 export class UserManagementComponent implements OnInit {
   title = 'User Management';
+  userForm = new FormGroup({
+    userId: new FormControl(''),
+    userEmail: new FormControl(''),
+    userName: new FormControl(''),
+    lastAccessTime: new FormControl(''),
+    lastAccessDevice: new FormControl(''),
+    lastAccessIp: new FormControl(''),
+    accountType: new FormControl('')
+  });
   constructor(private sharedService: SharedService, private userManagementService: UserManagementService) { 
     this.sharedService.setTitle(this.title);
   }

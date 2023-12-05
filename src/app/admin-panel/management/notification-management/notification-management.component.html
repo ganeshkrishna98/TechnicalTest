@@ -17,13 +17,13 @@
                                         <p>Email</p>
                                     </th>
                                     <th>
-                                        <p>Name</p>
+                                        <p>Notification Name</p>
                                     </th>
                                     <th>
-                                        <p>Device</p>
+                                        <p>Notification Content</p>
                                     </th>
                                     <th>
-                                        <p>Account Type</p>
+                                        <p>Created User Name</p>
                                     </th>
                                     <!-- <th><input type="checkbox" name="selectAll" id="selectAll"></th> -->
                                 </tr>
@@ -42,75 +42,101 @@
                     </div>
                     <div *ngIf="isSelected">
                         <div class="card-body table-responsive" *ngIf="isSelected">
-                            <table class="detail-table" *ngIf="!documentForm.value.documentId">
+                            <table class="detail-table" *ngIf="!notificationForm.value.notificationId">
                                 <tbody>
                                     <tr>
-                                        <td>Doc Id</td>
+                                        <td>Id</td>
                                         <td>&#58;</td>
-                                        <td>{{ selectedItem?.documentId }}</td>
+                                        <td>{{ selectedItem?.notificationId }}</td>
                                     </tr>
                                     <tr>
-                                        <td>Doc Name</td>
+                                        <td>Notification Name</td>
                                         <td>&#58;</td>
-                                        <td>{{ selectedItem?.documentName }}</td>
+                                        <td>{{ selectedItem?.notificationName }}</td>
                                     </tr>
                                     <tr>
-                                        <td>File Name</td>
+                                        <td>Notification Content</td>
                                         <td>&#58;</td>
-                                        <td>{{ selectedItem?.fileName }}</td>
+                                        <td>{{ selectedItem?.notificationContent }}</td>
                                     </tr>
                                     <tr>
-                                        <td>Approval Status</td>
+                                        <td>Created Date</td>
                                         <td>&#58;</td>
-                                        <td>{{ selectedItem?.approvalStatus }}</td>
+                                        <td>{{ selectedItem?.createdDate }}</td>
                                     </tr>
                                     <tr>
-                                        <td>Author Name</td>
+                                        <td>Created Time</td>
                                         <td>&#58;</td>
-                                        <td>{{ selectedItem?.authorName }}</td>
+                                        <td>{{ selectedItem?.createdTime }}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Created User Id</td>
+                                        <td>&#58;</td>
+                                        <td>{{ selectedItem?.createdUserId }}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Created User Name</td>
+                                        <td>&#58;</td>
+                                        <td>{{ selectedItem?.createdUserName }}</td>
                                     </tr>
                                 </tbody>
                             </table>
-                            <form *ngIf="documentForm.value.documentId" [formGroup]="documentForm">
+                            <form *ngIf="notificationForm.value.notificationId" [formGroup]="notificationForm">
                                 <table class="detail-table">
                                     <tr>
                                         <td>Doc Id</td>
                                         <td>&#58;</td>
                                         <td>
-                                            <input type="text" class="form-control" id="documentId"
-                                                formControlName="documentId" />
+                                            <input type="text" class="form-control" id="notificationId"
+                                                formControlName="notificationId" />
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td>Doc Name</td>
+                                        <td>Notification Name</td>
                                         <td>&#58;</td>
                                         <td>
-                                            <input type="text" class="form-control" id="documentName"
-                                                formControlName="documentName" />
+                                            <input type="text" class="form-control" id="notificationName"
+                                                formControlName="notificationName" />
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td>File Name</td>
+                                        <td>Notification Content</td>
                                         <td>&#58;</td>
                                         <td>
-                                            <input type="text" class="form-control" id="fileName"
-                                                formControlName="fileName" />
+                                            <input type="text" class="form-control" id="notificationContent"
+                                                formControlName="notificationContent" />
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td>Approval Status</td>
+                                        <td>Created Date</td>
                                         <td>&#58;</td>
                                         <td>
-                                            <input type="text" class="form-control" id="approvalStatus"
-                                                formControlName="approvalStatus" />
+                                            <input type="text" class="form-control" id="createdDate"
+                                                formControlName="createdDate" />
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td>Author Name</td>
+                                        <td>Created Time</td>
                                         <td>&#58;</td>
                                         <td>
-                                            <input type="text" class="form-control" id="authorName"
-                                                formControlName="authorName" />
+                                            <input type="text" class="form-control" id="createdTime"
+                                                formControlName="createdTime" />
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Created User Id</td>
+                                        <td>&#58;</td>
+                                        <td>
+                                            <input type="text" class="form-control" id="createdUserId"
+                                                formControlName="createdUserId" />
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Created User Name</td>
+                                        <td>&#58;</td>
+                                        <td>
+                                            <input type="text" class="form-control" id="createdUserName"
+                                                formControlName="createdUserName" />
                                         </td>
                                     </tr>
                                 </table>
