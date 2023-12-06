@@ -29,7 +29,7 @@ const routes: Routes = [
   { path: 'user-profile', component: UserProfileComponent },
   { path: 'notifications', component: NotificationsComponent },
   { path: 'create-document', component: CreateDocumentComponent },
-  { path: 'document-management', component: DocumentManagementComponent },
+  // { path: 'document-management', component: DocumentManagementComponent },
   { path: 'admin-panel', component: AdminPanelComponent },
   { path: 'access-logs', component: AccessLogsComponent },
   { path: 'database-management', component: DatabaseManagementComponent },
@@ -39,7 +39,7 @@ const routes: Routes = [
   { path: 'user-management', component: UserManagementComponent },
   { path: 'login', component: LoginComponent },
   {
-    path: 'document',
+    path: 'document-management',
     loadChildren: () => import('./features/document/document.module').then(m => m.DocumentModule)
   }
 ];

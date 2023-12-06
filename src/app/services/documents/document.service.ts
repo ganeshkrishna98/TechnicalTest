@@ -17,7 +17,7 @@ export class DocumentService {
     return this.http.post<any[]>(API_URLS.CREATE_DOC,payload);
   }
   updateDocument(payload: any): Observable<any>{
-    return this.http.post(API_URLS.UPDATE_DOC, payload);
+    return this.http.post(API_URLS.UPDATE_DOC, payload, {responseType: 'text'});
   }
   deleteDocument(payload: any): Observable<any>{
     return this.http.post(API_URLS.DELETE_DOC, payload);

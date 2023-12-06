@@ -43,6 +43,14 @@
                     </div>
                     <div *ngIf="isSelected">
                         <div class="card-body table-responsive" *ngIf="isSelected">
+                            <div class="action-container">
+                                <div class="action-wrapper">
+                                    <span class="material-icons ml-small" (click)="updateDocument()">edit</span>
+                                    <span class="material-icons ml-small" (click)="deleteDocument()">delete</span>
+                                    <span class="material-icons ml-small">get_app</span>    
+                                    <span class="material-icons ml-small">remove_red_eye</span>
+                                </div>
+                            </div>
                             <table class="detail-table" *ngIf="!documentForm.value.documentId">
                                 <tbody>
                                     <tr>
@@ -79,7 +87,7 @@
                                         <td>&#58;</td>
                                         <td>
                                             <input type="text" class="form-control" id="documentId"
-                                                formControlName="documentId" />
+                                                formControlName="documentId" disabled="true" />
                                         </td>
                                     </tr>
                                     <tr>
@@ -117,16 +125,8 @@
                                 </table>
                             </form>
                             <div class="action-button-wrapper">
-                                <div class="d-flex">
                                     <button class="btn btn-warning btn-block" (click)="isSelected=false">Back</button>
-                                    <button class="btn btn-warning btn-block ml-small"
-                                        (click)="updateDocument()">Edit</button>
-                                    <button class="btn btn-warning btn-block ml-small"
-                                        (click)="deleteDocument()">Delete</button>
-                                    <button class="btn btn-warning btn-block ml-small">Download</button>
-                                    <button class="btn btn-warning btn-block ml-small">View</button>
-                                    <button class="btn btn-warning btn-block ml-small">Approve</button>
-                                </div>
+                                    <button class="btn btn-warning btn-block ml-small" (click)="updateDetails()">Approve</button>
                             </div>
 
                         </div>

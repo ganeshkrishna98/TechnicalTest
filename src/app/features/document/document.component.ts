@@ -1,7 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { SharedService } from 'app/services/shared/shared.service';
 import { DocumentService } from 'app/services/documents/document.service';
 import { FormControl, FormGroup } from '@angular/forms';
+import { take } from 'rxjs';
+import { HTTP_RESPONSE } from 'app/utils/constants/app.contants';
 
 declare var $: any;
 @Component({
@@ -24,13 +26,16 @@ export class DocumentComponent implements OnInit {
     lastAccessedUserId: new FormControl('')
   });
   isSelected: boolean = false;
-  constructor(private sharedService: SharedService,private documentService: DocumentService) { 
+  constructor(private sharedService: SharedService,private documentService: DocumentService, private cdr: ChangeDetectorRef) { 
     this.sharedService.setTitle(this.title);
   }
   tableData: any[] = [];
   selectedItem: any;
   ngOnInit(): void {
     this.fetchData();
+  }
+  ngAfterViewInit(){
+    this.cdr.detectChanges()
   }
   fetchData() {
     this.documentService.readDocument().subscribe(
@@ -67,9 +72,20 @@ export class DocumentComponent implements OnInit {
   updateDocument(){
     Object.keys(this.selectedItem).forEach(e => {
       this.documentForm.get(`${e}`).setValue(this.selectedItem[e]);
-      this.documentForm.updateValueAndValidity();
+      // this.documentForm.updateValueAndValidity();
       });
     // this.documentService.updateDocument(this.documentForm.value);
+    
+    console.log(this.documentForm.value)
+  }
+  updateDetails(){
+    this.documentService.updateDocument(this.documentForm.value)
+    .subscribe(e => {
+      if(e.toUpperCase() == HTTP_RESPONSE.SUCCESS){
+        this.isSelected = false;
+        this.selectedItem = {}
+      }
+    })
   }
   deleteDocument(){
     const payload = { documentId: this.selectedItem.documentId}

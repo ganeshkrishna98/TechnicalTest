@@ -13,4 +13,14 @@ table thead tr th:nth-child(1) {width: 10% !important;}
 .action-button-wrapper{
     display: flex;
     justify-content: space-between;
+    margin-top: 1rem;
+}
+.action-wrapper{
+    display: flex;
+    justify-content: space-between;
+    width: 12rem;
+}
+.action-container{
+    display: flex;
+    justify-content: flex-end;
 }
