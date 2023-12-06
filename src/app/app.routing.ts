@@ -13,45 +13,54 @@ const routes: Routes = [
     redirectTo: '/dashboard',
     pathMatch: 'full',
   },
-  { path: 'dashboard', 
-  loadChildren: () => import('./features/dashboard/dashboard.module').then(m => m.DashboardModule), 
-  canActivate: [AuthGuard] 
+  {
+    path: 'dashboard',
+    loadChildren: () => import('./features/dashboard/dashboard.module').then(m => m.DashboardModule),
+    canActivate: [AuthGuard]
   },
-  { path: 'user-profile',
-  loadChildren: () => import('./features/user-profile/user-profile.module').then(m => m.UserProfileModule)
+  {
+    path: 'user-profile',
+    loadChildren: () => import('./features/user-profile/user-profile.module').then(m => m.UserProfileModule)
   },
-  { path: 'notifications',
-  loadChildren: () => import('./features/notifications/notifications.module').then(m => m.NotificationsModule)
+  {
+    path: 'notifications',
+    loadChildren: () => import('./features/notifications/notifications.module').then(m => m.NotificationsModule)
   },
-  { path: 'create-document',
-   component: CreateDocumentComponent 
+  {
+    path: 'create-document',
+    component: CreateDocumentComponent
   },
-  { path: 'document-management',
-   component: DocumentManagementComponent 
+  {
+    path: 'admin-panel',
+    loadChildren: () => import('./features/admin-panel/admin-panel.module').then(m => m.AdminPanelModule)
   },
-  { path: 'admin-panel',
-  loadChildren: () => import('./features/admin-panel/admin-panel.module').then(m => m.AdminPanelModule)
+  {
+    path: 'access-logs',
+    loadChildren: () => import('./features/admin-panel/management/access-logs/access-logs.module').then(m => m.AccessLogsModule)
   },
-  { path: 'access-logs',
-  loadChildren: () => import('./features/admin-panel/management/access-logs/access-logs.module').then(m => m.AccessLogsModule)
+  {
+    path: 'database-management',
+    loadChildren: () => import('./features/admin-panel/management/database-management/database-management.module').then(m => m.DatabaseManagementModule)
   },
-  { path: 'database-management',
-  loadChildren: () => import('./features/admin-panel/management/database-management/database-management.module').then(m => m.DatabaseManagementModule)
+  {
+    path: 'device-management',
+    loadChildren: () => import('./features/admin-panel/management/device-management/device-management.module').then(m => m.DeviceManagementModule)
   },
-  { path: 'device-management',
-  loadChildren: () => import('./features/admin-panel/management/device-management/device-management.module').then(m => m.DeviceManagementModule)
+  {
+    path: 'notification-management',
+    loadChildren: () => import('./features/admin-panel/management/notification-management/notification-management.module').then(m => m.NotificationManagementModule)
   },
-  { path: 'notification-management',
-  loadChildren: () => import('./features/admin-panel/management/notification-management/notification-management.module').then(m => m.NotificationManagementModule)
+  {
+    path: 'storage-management',
+    loadChildren: () => import('./features/admin-panel/management/storage-management/storage-management.module').then(m => m.StorageManagementModule)
   },
-  { path: 'storage-management',
-  loadChildren: () => import('./features/admin-panel/management/storage-management/storage-management.module').then(m => m.StorageManagementModule)
+  {
+    path: 'user-management',
+    loadChildren: () => import('./features/admin-panel/management/user-management/user-management.module').then(m => m.UserManagementModule)
   },
-  { path: 'user-management',
-  loadChildren: () => import('./features/admin-panel/management/user-management/user-management.module').then(m => m.UserManagementModule)
-  },
-  { path: 'login',
-  loadChildren: () => import('./features/login/login.module').then(m => m.LoginModule)
+  {
+    path: 'login',
+    loadChildren: () => import('./features/login/login.module').then(m => m.LoginModule)
   },
   {
     path: 'document-management',
