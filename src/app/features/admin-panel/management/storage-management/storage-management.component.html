@@ -1,0 +1,151 @@
+<div class="main-content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header card-header-danger">
+                        <h4 class="card-title ">Storages</h4>                        
+                    </div>
+                    <div class="card-body table-responsive" *ngIf="!isSelected">
+                        <table class="document-table table-hover document-table">
+                            <thead class="text-warning">
+                                <tr>
+                                    <th>
+                                        <p>ID</p>
+                                    </th>
+                                    <th>
+                                        <p>Storage Name</p>
+                                    </th>
+                                    <th>
+                                        <p>Creation Date</p>
+                                    </th>
+                                    <th>
+                                        <p>Creator User Id</p>
+                                    </th>
+                                    <th>
+                                        <p>Creator User Name</p>
+                                    </th>
+                                    <!-- <th><input type="checkbox" name="selectAll" id="selectAll"></th> -->
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let item of tableData" (click)="getData(item)">
+                                    <td>{{ item.storageId }}</td>
+                                    <td>{{ item.storageName }}</td>
+                                    <td>{{ item.createdDate }}</td>
+                                    <td>{{ item.createdUserId }}</td>
+                                    <td>{{ item.createdUserName }}</td>
+                                    <!-- <td><input type="checkbox" name="checkbox" id="checkbox"></td> -->
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div *ngIf="isSelected">
+                        <div class="card-body table-responsive" *ngIf="isSelected">
+                            <table class="detail-table" *ngIf="!storageForm.value.storageId">
+                                <tbody>
+                                    <tr>
+                                        <td>Id</td>
+                                        <td>&#58;</td>
+                                        <td>{{ selectedItem?.storageId }}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Storage Name</td>
+                                        <td>&#58;</td>
+                                        <td>{{ selectedItem?.storageName }}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Creation Date</td>
+                                        <td>&#58;</td>
+                                        <td>{{ selectedItem?.createdDate }}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Creation Time</td>
+                                        <td>&#58;</td>
+                                        <td>{{ selectedItem?.createdTime }}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Creator User Id</td>
+                                        <td>&#58;</td>
+                                        <td>{{ selectedItem?.createdUserId }}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Creator User Name</td>
+                                        <td>&#58;</td>
+                                        <td>{{ selectedItem?.createdUserName }}</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <form *ngIf="storageForm.value.storageId" [formGroup]="storageForm">
+                                <table class="detail-table">
+                                    <tr>
+                                        <td>Id</td>
+                                        <td>&#58;</td>
+                                        <td>
+                                            <input type="text" class="form-control" id="storageId"
+                                                formControlName="storageId" />
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Storage Name</td>
+                                        <td>&#58;</td>
+                                        <td>
+                                            <input type="text" class="form-control" id="storageName"
+                                                formControlName="storageName" />
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Creation Date</td>
+                                        <td>&#58;</td>
+                                        <td>
+                                            <input type="text" class="form-control" id="createdDate"
+                                                formControlName="createdDate" />
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Creation Time</td>
+                                        <td>&#58;</td>
+                                        <td>
+                                            <input type="text" class="form-control" id="createdTime"
+                                                formControlName="createdTime" />
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Creator User Id</td>
+                                        <td>&#58;</td>
+                                        <td>
+                                            <input type="text" class="form-control" id="createdUserId"
+                                                formControlName="createdUserId" />
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Creator User Name</td>
+                                        <td>&#58;</td>
+                                        <td>
+                                            <input type="text" class="form-control" id="createdUserName"
+                                                formControlName="createdUserName" />
+                                        </td>
+                                    </tr>
+                                </table>
+                            </form>
+                            <div class="action-button-wrapper">
+                                <div class="d-flex">
+                                    <button class="btn btn-warning btn-block" (click)="isSelected=false">Back</button>
+                                    <button class="btn btn-warning btn-block ml-small"
+                                        (click)="updateDocument()">Edit</button>
+                                    <button class="btn btn-warning btn-block ml-small"
+                                        (click)="deleteDocument()">Delete</button>
+                                    <button class="btn btn-warning btn-block ml-small">Download</button>
+                                    <button class="btn btn-warning btn-block ml-small">View</button>
+                                    <button class="btn btn-warning btn-block ml-small">Approve</button>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>            
+        </div>
+    </div>
+  </div>
+  

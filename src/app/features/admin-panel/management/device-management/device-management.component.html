@@ -1,0 +1,177 @@
+<div class="main-content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header card-header-danger">
+                        <h4 class="card-title ">Devices</h4>                        
+                    </div>
+                    <div class="card-body table-responsive" *ngIf="!isSelected">
+                        <table class="document-table table-hover document-table">
+                            <thead class="text-warning">
+                                <tr>
+                                    <th>
+                                        <p>ID</p>
+                                    </th>
+                                    <th>
+                                        <p>Email</p>
+                                    </th>
+                                    <th>
+                                        <p>Name</p>
+                                    </th>
+                                    <th>
+                                        <p>Device</p>
+                                    </th>
+                                    <th>
+                                        <p>Account Type</p>
+                                    </th>
+                                    <!-- <th><input type="checkbox" name="selectAll" id="selectAll"></th> -->
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let item of tableData" (click)="getData(item)">
+                                    <td>{{ item.deviceId }}</td>
+                                    <td>{{ item.deviceName }}</td>
+                                    <td>{{ item.deviceType }}</td>
+                                    <td>{{ item.deviceOs }}</td>
+                                    <td>{{ item.userName }}</td>
+                                    <!-- <td><input type="checkbox" name="checkbox" id="checkbox"></td> -->
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div *ngIf="isSelected">
+                        <div class="card-body table-responsive" *ngIf="isSelected">
+                            <table class="detail-table" *ngIf="!deviceForm.value.deviceId">
+                                <tbody>
+                                    <tr>
+                                        <td>Id</td>
+                                        <td>&#58;</td>
+                                        <td>{{ selectedItem?.deviceId }}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Device Name</td>
+                                        <td>&#58;</td>
+                                        <td>{{ selectedItem?.deviceName }}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Device Type</td>
+                                        <td>&#58;</td>
+                                        <td>{{ selectedItem?.deviceType }}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Device Os</td>
+                                        <td>&#58;</td>
+                                        <td>{{ selectedItem?.deviceOs }}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>User Id</td>
+                                        <td>&#58;</td>
+                                        <td>{{ selectedItem?.userId }}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>User Name</td>
+                                        <td>&#58;</td>
+                                        <td>{{ selectedItem?.userName }}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Last Accessed Date</td>
+                                        <td>&#58;</td>
+                                        <td>{{ selectedItem?.lastAccessedDate }}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Last Accessed Time</td>
+                                        <td>&#58;</td>
+                                        <td>{{ selectedItem?.lastAccessedTime }}</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <form *ngIf="deviceForm.value.deviceId" [formGroup]="deviceForm">
+                                <table class="detail-table">
+                                    <tr>
+                                        <td>Id</td>
+                                        <td>&#58;</td>
+                                        <td>
+                                            <input type="text" class="form-control" id="deviceId"
+                                                formControlName="deviceId" />
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Device Name</td>
+                                        <td>&#58;</td>
+                                        <td>
+                                            <input type="text" class="form-control" id="deviceName"
+                                                formControlName="deviceName" />
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Device Type</td>
+                                        <td>&#58;</td>
+                                        <td>
+                                            <input type="text" class="form-control" id="deviceType"
+                                                formControlName="deviceType" />
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Device Os</td>
+                                        <td>&#58;</td>
+                                        <td>
+                                            <input type="text" class="form-control" id="deviceOs"
+                                                formControlName="deviceOs" />
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>User Id</td>
+                                        <td>&#58;</td>
+                                        <td>
+                                            <input type="text" class="form-control" id="userId"
+                                                formControlName="userId" />
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>User Name</td>
+                                        <td>&#58;</td>
+                                        <td>
+                                            <input type="text" class="form-control" id="userName"
+                                                formControlName="userName" />
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Last Accessed Date</td>
+                                        <td>&#58;</td>
+                                        <td>
+                                            <input type="text" class="form-control" id="lastAccessedDate"
+                                                formControlName="lastAccessedDate" />
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Last Accessed Time</td>
+                                        <td>&#58;</td>
+                                        <td>
+                                            <input type="text" class="form-control" id="lastAccessedTime"
+                                                formControlName="lastAccessedTime" />
+                                        </td>
+                                    </tr>
+                                </table>
+                            </form>
+                            <div class="action-button-wrapper">
+                                <div class="d-flex">
+                                    <button class="btn btn-warning btn-block" (click)="isSelected=false">Back</button>
+                                    <button class="btn btn-warning btn-block ml-small"
+                                        (click)="updateDocument()">Edit</button>
+                                    <button class="btn btn-warning btn-block ml-small"
+                                        (click)="deleteDocument()">Delete</button>
+                                    <button class="btn btn-warning btn-block ml-small">Download</button>
+                                    <button class="btn btn-warning btn-block ml-small">View</button>
+                                    <button class="btn btn-warning btn-block ml-small">Approve</button>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>            
+        </div>
+    </div>
+  </div>
+  
