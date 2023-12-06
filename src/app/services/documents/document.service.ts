@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { API_URLS } from 'app/utils/constants/api.constants';
 
@@ -20,7 +20,7 @@ export class DocumentService {
     return this.http.post(API_URLS.UPDATE_DOC, payload, {responseType: 'text'});
   }
   deleteDocument(payload: any): Observable<any>{
-    return this.http.post(API_URLS.DELETE_DOC, payload);
+    return this.http.delete(API_URLS.DELETE_DOC, payload);
   }
   uploadDocument(payload: any): Observable<any>{
     return this.http.post(API_URLS.UPLOAD_DOC,payload);

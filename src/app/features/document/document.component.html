@@ -45,7 +45,7 @@
                         <div class="card-body table-responsive" *ngIf="isSelected">
                             <div class="action-container">
                                 <div class="action-wrapper">
-                                    <span class="material-icons ml-small" (click)="updateDocument()">edit</span>
+                                    <span class="material-icons ml-small" [ngClass]="{'active' : selectedAction == 'UPDATE'}" (click)="updateDocument()">edit</span>
                                     <span class="material-icons ml-small" (click)="deleteDocument()">delete</span>
                                     <span class="material-icons ml-small">get_app</span>    
                                     <span class="material-icons ml-small">remove_red_eye</span>
@@ -126,7 +126,7 @@
                             </form>
                             <div class="action-button-wrapper">
                                     <button class="btn btn-warning btn-block" (click)="isSelected=false">Back</button>
-                                    <button class="btn btn-warning btn-block ml-small" (click)="updateDetails()">Approve</button>
+                                    <button class="btn btn-warning btn-block ml-small" (click)="selectedAction == 'UPDATE' ? updateDetails() : false">{{selectedAction == 'APPROVE' ? 'Approve' : 'Update'}}</button>
                             </div>
 
                         </div>

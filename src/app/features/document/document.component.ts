@@ -26,6 +26,7 @@ export class DocumentComponent implements OnInit {
     lastAccessedUserId: new FormControl('')
   });
   isSelected: boolean = false;
+  selectedAction = 'APPROVE';
   constructor(private sharedService: SharedService,private documentService: DocumentService, private cdr: ChangeDetectorRef) { 
     this.sharedService.setTitle(this.title);
   }
@@ -38,6 +39,8 @@ export class DocumentComponent implements OnInit {
     this.cdr.detectChanges()
   }
   fetchData() {
+    this.isSelected = false;
+    this.selectedItem = {};
     this.documentService.readDocument().subscribe(
       (data: any[]) => {
         this.tableData = data; 
@@ -74,16 +77,13 @@ export class DocumentComponent implements OnInit {
       this.documentForm.get(`${e}`).setValue(this.selectedItem[e]);
       // this.documentForm.updateValueAndValidity();
       });
-    // this.documentService.updateDocument(this.documentForm.value);
-    
-    console.log(this.documentForm.value)
+    this.selectedAction = 'UPDATE'
   }
   updateDetails(){
     this.documentService.updateDocument(this.documentForm.value)
     .subscribe(e => {
       if(e.toUpperCase() == HTTP_RESPONSE.SUCCESS){
-        this.isSelected = false;
-        this.selectedItem = {}
+        this.fetchData();
       }
     })
   }
