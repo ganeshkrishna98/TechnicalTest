@@ -3,15 +3,13 @@ import { CommonModule, } from '@angular/common';
 import { BrowserModule } from '@angular/platform-browser';
 import { Routes, RouterModule } from '@angular/router';
 
-import { DocumentManagementComponent } from './document/document-management/document-management.component';
 import { CreateDocumentComponent } from './document/create-document/create-document.component';
 import { AuthGuard } from './guards/auth.guard';
 
 const routes: Routes = [
   {
     path: '',
-    redirectTo: '/dashboard',
-    pathMatch: 'full',
+    redirectTo: 'login',
   },
   {
     path: 'dashboard',
