@@ -1,0 +1,70 @@
+<div class="main-content">
+    <div class="container-fluid">
+        <div class="card">
+            <div class="card-header card-header-success">
+                <h4 class="card-title">Enter the following details to create your document!</h4>
+                <!-- <p class="card-category">Handcrafted by our friends from
+                    <a target="_blank" href="https://fonts.google.com/icons">Google</a>
+                </p> -->
+            </div>
+            <div class="card-body table-responsive">
+                <form [formGroup]="createDocumentForm">
+                    <!-- <div class="d-flex">
+                        <label class="create-form-label" for="documentId">Document Id</label>
+                        <input type="text" name="documentId" id="documentId" class="form-control create-form-input mb-2"
+                            formControlName="documentId">
+                    </div> -->
+                    <div class="d-flex">
+                        <label class="create-form-label" for="documentName">Document Name</label>
+                        <input type="text" name="documentName" id="documentName"
+                            class="form-control create-form-input mb-2" formControlName="documentName">
+                    </div>
+                    <div class="d-flex">
+                        <label class="create-form-label" for="fileName">File Name</label>
+                        <input type="text" name="fileName" id="fileName" class="form-control create-form-input mb-2"
+                            formControlName="fileName">
+                    </div>
+                    <div class="d-flex">
+                        <label class="create-form-label" for="approvalStatus">Approval Status</label>
+                        <input type="text" name="approvalStatus" id="approvalStatus"
+                            class="form-control create-form-input mb-2" formControlName="approvalStatus">
+                    </div>
+                    <div class="d-flex">
+                        <label class="create-form-label" for="authorUserId">Author User Id</label>
+                        <input type="text" name="authorUserId" id="authorUserId"
+                            class="form-control create-form-input mb-2" formControlName="authorUserId">
+                    </div>
+                    <div class="d-flex">
+                        <label class="create-form-label" for="authorName">Author Name</label>
+                        <input type="text" name="authorName" id="authorName" class="form-control create-form-input mb-2"
+                            formControlName="authorName">
+                    </div>
+                    <div class="d-flex">
+                        <label class="create-form-label" for="lastModifiedUserId">Last modified user id</label>
+                        <input type="text" name="lastModifiedUserId" id="lastModifiedUserId"
+                            class="form-control create-form-input mb-2" formControlName="lastModifiedUserId">
+                    </div>
+                    <div class="d-flex">
+                        <label class="create-form-label" for="lastModifiedUserName">Last Modified User Name</label>
+                        <input type="text" name="lastModifiedUserName" id="lastModifiedUserName"
+                            class="form-control create-form-input mb-2" formControlName="lastModifiedUserName">
+                    </div>
+                    <div class="d-flex">
+                        <label class="create-form-label" for="lastAccessedUserId">Last Accessed User Id</label>
+                        <input type="text" name="lastAccessedUserId" id="lastAccessedUserId"
+                            class="form-control create-form-input mb-2" formControlName="lastAccessedUserId">
+                    </div>
+                    <div class="d-flex">
+                        <label class="create-form-label" for="lastAccessedUserName">Last Accessed User Name</label>
+                        <input type="text" name="lastAccessedUserName" id="lastAccessedUserName"
+                            class="form-control create-form-input mb-2" formControlName="lastAccessedUserName">
+                    </div>
+                    <div class="d-flex justify-between mt-3">
+                        <button type="reset" mat-raised-button class="btn  btn-block">Reset</button>
+                        <button type="submit" mat-raised-button class="btn btn-success btn-block" (click)="createDocument()" [disabled]="createDocumentForm.invalid">Submit</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

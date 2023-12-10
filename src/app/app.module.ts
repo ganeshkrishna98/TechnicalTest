@@ -6,7 +6,7 @@ import { RouterModule } from '@angular/router';
 import { AppRoutingModule } from './app.routing';
 import { ComponentsModule } from './components/components.module';
 import { AppComponent } from './app.component';
-import { CreateDocumentComponent } from './document/create-document/create-document.component';
+import { CreateDocumentComponent } from './features/create-document/create-document.component';
 import { DocumentManagementComponent } from './document/document-management/document-management.component';
 import { MatButtonModule } from '@angular/material/button';
 import { MatRippleModule } from '@angular/material/core';
@@ -15,6 +15,8 @@ import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { InterceptorService } from './utils/interceptor/interceptor.service';
+import { NotificationComponent } from './shared/notification/notification.component';
+import { SharedModule } from './shared/shared.module';
 
 @NgModule({
   imports: [
@@ -33,11 +35,12 @@ import { InterceptorService } from './utils/interceptor/interceptor.service';
     MatInputModule,
     MatSelectModule,
     MatTooltipModule,
+    SharedModule
   ],
   declarations: [
     AppComponent,
-    CreateDocumentComponent,
-    DocumentManagementComponent
+    DocumentManagementComponent,
+    
   ],
   providers: [
     {

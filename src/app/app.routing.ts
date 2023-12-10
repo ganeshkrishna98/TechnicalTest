@@ -3,7 +3,7 @@ import { CommonModule, } from '@angular/common';
 import { BrowserModule } from '@angular/platform-browser';
 import { Routes, RouterModule } from '@angular/router';
 
-import { CreateDocumentComponent } from './document/create-document/create-document.component';
+import { CreateDocumentComponent } from './features/create-document/create-document.component';
 import { AuthGuard } from './guards/auth.guard';
 
 const routes: Routes = [
@@ -26,7 +26,7 @@ const routes: Routes = [
   },
   {
     path: 'create-document',
-    component: CreateDocumentComponent
+    loadChildren: () => import('./features/create-document/create-document.module').then(m => m.CreateDocumentModule)
   },
   {
     path: 'admin-panel',

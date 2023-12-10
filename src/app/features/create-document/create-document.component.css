@@ -1,0 +1,12 @@
+.create-form-input {
+    width: 70%;
+}
+
+.create-form-label {
+    width: 30%;
+    display: flex;
+    align-items: end;
+    text-wrap: wrap;
+    margin-right: 1.5rem;
+    flex-wrap: wrap;
+}

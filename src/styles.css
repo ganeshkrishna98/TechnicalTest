@@ -33,9 +33,6 @@ td {
 .back-button{
     width: 100px;
 }
-.d-flex{
-  display: flex;
-}
 /* padding styles begins */
 .p-small{
   padding: 0.625rem !important;
@@ -97,4 +94,15 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 }
 .disabled{
   color: #808080;
+}
+.material-icons:hover {
+  cursor: pointer
+}
+.justify-between{
+  justify-content: space-between;
+}
+app-notification{
+  position: relative;
+  width: 100%;
+  display: block;
 }

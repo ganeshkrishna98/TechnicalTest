@@ -90,9 +90,17 @@ export class DocumentComponent implements OnInit {
   deleteDocument(){
     const payload = { documentId: this.selectedItem.documentId}
     this.documentService.deleteDocument(payload).subscribe(e => {
-      // if(e){
-        debugger;
-      // }
+      if(e){
+        this.fetchData();
+      }
     });
+  }
+  downloadDocument(){
+    let payload = {fileName: this.selectedItem.fileName};
+    this.documentService.downloadDocument(payload).subscribe(e => {
+      if(e){
+        debugger;
+      }
+    })
   }
 }

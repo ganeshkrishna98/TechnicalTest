@@ -17,7 +17,7 @@ export class UserManagementService {
     return this.http.post<any[]>(API_URLS.CREATE_USERS,payload);
   }
   updateUsers(payload: any): Observable<any>{
-    return this.http.post(API_URLS.UPDATE_USERS,payload);
+    return this.http.post(API_URLS.UPDATE_USERS,payload, {responseType: 'text'});
   }
   deleteUsers(payload: any): Observable<any>{
     return this.http.post(API_URLS.DELETE_USERS,payload);

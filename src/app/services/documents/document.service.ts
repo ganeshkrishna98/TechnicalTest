@@ -14,18 +14,18 @@ export class DocumentService {
     return this.http.get<any[]>(API_URLS.READ_DOC);
   }
   createDocument(payload: any): Observable<any>{
-    return this.http.post<any[]>(API_URLS.CREATE_DOC,payload);
+    return this.http.post(API_URLS.CREATE_DOC, payload, {responseType: 'text'});
   }
   updateDocument(payload: any): Observable<any>{
     return this.http.post(API_URLS.UPDATE_DOC, payload, {responseType: 'text'});
-  }
+}
   deleteDocument(payload: any): Observable<any>{
-    return this.http.delete(API_URLS.DELETE_DOC, payload);
+    return this.http.delete(API_URLS.DELETE_DOC, {body:payload});
   }
   uploadDocument(payload: any): Observable<any>{
     return this.http.post(API_URLS.UPLOAD_DOC,payload);
   }
   downloadDocument(payload: any): Observable<any>{
-    return this.http.get(API_URLS.DOWNLOAD_DOC,payload);
+    return this.http.get(API_URLS.DOWNLOAD_DOC(payload.fileName));
   }
 }

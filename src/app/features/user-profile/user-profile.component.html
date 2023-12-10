@@ -8,32 +8,32 @@
                       <p class="card-category">Complete your profile</p>
                   </div>
                   <div class="card-body">
-                      <form>
+                      <form [formGroup]="userProfileForm">
                           <div class="row">                              
-                              <div class="col-md-5">
-                                <mat-form-field class="example-full-width">
-                                    <input matInput placeholder="User ID" disabled>
-                                  </mat-form-field>
+                              <div class="col-md-6">
+                                  <label class="create-form-label" for="userId">User Id</label>
+                                  <input type="text" name="userId" id="userId"
+                                      class="form-control create-form-input mb-2" formControlName="userId">
                               </div>
-                              <div class="col-md-4">
-                                  <mat-form-field class="example-full-width">
-                                    <input matInput placeholder="Email address" type="email">
-                                  </mat-form-field>
+                              <div class="col-md-6">
+                                <label class="create-form-label" for="userEmail">Email Address</label>
+                                <input type="text" name="userEmail" id="userEmail"
+                                    class="form-control create-form-input mb-2" formControlName="userEmail">
                               </div>
                           </div>
                           <div class="row">
                               <div class="col-md-6">
-                                <mat-form-field class="example-full-width">
-                                  <input matInput placeholder="Full Name" type="text">
-                                </mat-form-field>
+                                <label class="create-form-label" for="userName">Full Name</label>
+                                <input type="text" name="userName" id="userName"
+                                    class="form-control create-form-input mb-2" formControlName="userName">
                               </div>     
-                              <div class="col-md-5">
-                                <mat-form-field class="example-full-width">
-                                    <input matInput placeholder="Account Type" disabled>
-                                  </mat-form-field>
+                              <div class="col-md-6">
+                                <label class="create-form-label" for="accountType">Account Type</label>
+                                <input type="text" name="accountType" id="accountType"
+                                    class="form-control create-form-input mb-2" formControlName="accountType">
                               </div>                         
                           </div>                          
-                          <button mat-raised-button type="submit" class="btn btn-danger pull-right">Update Profile</button>
+                          <button mat-raised-button type="submit" class="btn btn-danger pull-right update-profile" (click)="updateProfile()" [disabled]="userProfileForm.invalid">Update Profile</button>
                           <div class="clearfix"></div>
                       </form>
                   </div>
