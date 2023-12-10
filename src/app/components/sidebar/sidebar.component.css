@@ -1,3 +1,11 @@
 li.active{
     border: none !important;
 }
+li:last-child{
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
+.sidebar-wrapper{
+    overflow-y: hidden !important;
+}

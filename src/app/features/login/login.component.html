@@ -3,13 +3,13 @@
     <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
       <label>Email:</label>
       <input type="text" formControlName="email" required>
-  
       <label>Password:</label>
       <input type="password" formControlName="password" required>
-  
-      <button type="submit" class="btn btn-warning btn-block ml-small" [disabled]="loginForm.invalid">Login</button>
-      
+      <div class="d-flex">
+        <button type="submit" class="btn btn-warning btn-block ml-small" [disabled]="loginForm.invalid">Login</button>
+        <button type="register" class="btn btn-warning btn-block ml-small" [routerLink]="['/register']">Register</button>
+      </div>
     </form>
-    <button type="register" class="btn btn-warning btn-block ml-small" [routerLink]="['/register']">Register</button>
+    
   </div>
 </div>

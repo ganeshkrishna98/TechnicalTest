@@ -3,8 +3,9 @@ import { Location, PopStateEvent } from '@angular/common';
 import { Router, NavigationEnd, NavigationStart } from '@angular/router';
 import PerfectScrollbar from 'perfect-scrollbar';
 import * as $ from "jquery";
-import { filter, Subscription } from 'rxjs';
+import { filter, Subscription, take } from 'rxjs';
 import { LoaderService } from './utils/loader/loader.service';
+import { AuthenticationService } from './services/authentication/authentication.service';
 
 
 @Component({
@@ -16,10 +17,14 @@ export class AppComponent implements OnInit{
   private _router: Subscription;
   private lastPoppedUrl: string;
   private yScrollStack: number[] = [];
+  public loggedIn: boolean = false;
 
-  constructor( public location: Location, private router: Router, public loaderService: LoaderService) {}
+  constructor( public location: Location, private router: Router, public loaderService: LoaderService, private authService: AuthenticationService) {}
 
   ngOnInit() {
+    this.authService.loggedIn$.subscribe(e => {
+        this.loggedIn = e
+    });
       const isWindows = navigator.platform.indexOf('Win') > -1 ? true : false;
 
       if (isWindows && !document.getElementsByTagName('body')[0].classList.contains('sidebar-mini')) {
@@ -48,8 +53,8 @@ export class AppComponent implements OnInit{
          }
       });
       this._router = this.router.events.pipe(filter(event => event instanceof NavigationEnd)).subscribe((event: NavigationEnd) => {
-           elemMainPanel.scrollTop = 0;
-           elemSidebar.scrollTop = 0;
+        //    elemMainPanel.scrollTop = 0;
+        //    elemSidebar.scrollTop = 0;
       });
       if (window.matchMedia(`(min-width: 960px)`).matches && !this.isMac()) {
           let ps = new PerfectScrollbar(elemMainPanel);

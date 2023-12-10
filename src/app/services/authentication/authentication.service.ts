@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
 import { JwtHelperService } from '@auth0/angular-jwt';
 
 @Injectable({
@@ -9,6 +9,9 @@ import { JwtHelperService } from '@auth0/angular-jwt';
 export class AuthenticationService {
   private apiUrl = 'https://localhost:7028/api/authentication';
   private jwtHelper = new JwtHelperService();
+  // public isLoggedIn: boolean = false;
+  loggedIn = new BehaviorSubject<any>(localStorage.getItem('token') ? true : false);
+  loggedIn$ = this.loggedIn.asObservable();
 
   constructor(private http: HttpClient) { }
 
@@ -37,5 +40,12 @@ export class AuthenticationService {
 
   getToken(): string | null {
     return localStorage.getItem('token');
+  }
+
+  userLoggedIn(){
+    this.loggedIn.next(localStorage.getItem('token') ? true : false)
+  }
+  isAdminUser() : boolean{
+    return localStorage.getItem('accountType').toUpperCase() == 'ADMINISTRATOR';
   }
 }

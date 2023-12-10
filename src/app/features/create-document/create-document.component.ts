@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { DocumentService } from 'app/services/documents/document.service';
 import { SharedService } from 'app/services/shared/shared.service';
 import { INotification } from 'app/shared/notification/notification.component';
@@ -25,7 +26,7 @@ export class CreateDocumentComponent implements OnInit {
     lastAccessedUserId: new FormControl('', [Validators.required])
   })
   docCreated: boolean = false;
-  constructor(private sharedService: SharedService, private documentService: DocumentService, private notificationService: NotificationService) {
+  constructor(private sharedService: SharedService, private router: Router, private documentService: DocumentService, private notificationService: NotificationService) {
     this.sharedService.setTitle(this.title);
   }
 
@@ -40,6 +41,7 @@ export class CreateDocumentComponent implements OnInit {
           type: 'success', message: 'Document created successfully!'
         }
         this.notificationService.notification(notification)
+        this.router.navigate(['/document-management'])
       }
     })
   }

@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule, } from '@angular/common';
 import { BrowserModule } from '@angular/platform-browser';
-import { Routes, RouterModule } from '@angular/router';
+import { Routes, RouterModule, UrlSegment, UrlMatcher } from '@angular/router';
 
 import { CreateDocumentComponent } from './features/create-document/create-document.component';
 import { AuthGuard } from './guards/auth.guard';
@@ -14,7 +14,7 @@ const routes: Routes = [
   {
     path: 'dashboard',
     loadChildren: () => import('./features/dashboard/dashboard.module').then(m => m.DashboardModule),
-    canActivate: [AuthGuard]
+    // canActivate: [AuthGuard]
   },
   {
     path: 'user-profile',
@@ -30,7 +30,8 @@ const routes: Routes = [
   },
   {
     path: 'admin-panel',
-    loadChildren: () => import('./features/admin-panel/admin-panel.module').then(m => m.AdminPanelModule)
+    loadChildren: () => import('./features/admin-panel/admin-panel.module').then(m => m.AdminPanelModule),
+    canActivate: [AuthGuard]
   },
   {
     path: 'access-logs',
@@ -58,7 +59,19 @@ const routes: Routes = [
   },
   {
     path: 'login',
-    loadChildren: () => import('./features/login/login.module').then(m => m.LoginModule)
+    loadChildren: () => import('./features/login/login.module').then(m => m.LoginModule),
+    matcher: (url:UrlSegment[]) => {debugger;
+      if (url.length === 1 && (url[0].path == 'login' || url[0].path == 'logout')) {
+        return {
+          consumed: url,
+          posParams: {
+            username: new UrlSegment(url[0].path.substr(1), {})
+          }
+        };
+      }
+
+      return null;
+    }
   },
   {
     path: 'document-management',
@@ -70,12 +83,19 @@ const routes: Routes = [
   }
 ];
 
+// export function matcher (url: UrlSegment[]): UrlMatcher {
+//   if (url.length > 0 && url[0].path === path) {
+//      return { consumed: [url[0]] };
+//   }
+//   return null;
+// }
+
 @NgModule({
   imports: [
     CommonModule,
     BrowserModule,
     RouterModule.forRoot(routes, {
-      useHash: true
+      useHash: false
     })
   ],
   exports: [

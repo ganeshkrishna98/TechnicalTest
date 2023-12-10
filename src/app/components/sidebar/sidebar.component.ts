@@ -13,6 +13,7 @@ export const ROUTES: RouteInfo[] = [
     { path: '/document-management', title: 'Document Management',  icon:'settings', class: '' },
     { path: '/user-profile', title: 'User Profile',  icon:'person', class: '' },
     { path: '/admin-panel', title: 'Admin Panel',  icon:'admin_panel_settings', class: '' },
+    { path: '/logout', title: 'Logout',  icon:'logout', class: '' },
 ];
 
 @Component({
