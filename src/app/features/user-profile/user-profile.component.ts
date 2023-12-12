@@ -4,6 +4,7 @@ import { SharedService } from 'app/services/shared/shared.service';
 import { UserManagementService } from 'app/services/user-management/user-management.service';
 import { INotification } from 'app/shared/notification/notification.component';
 import { NotificationService } from 'app/shared/notification/notification.service';
+import { HTTP_RESPONSE } from 'app/utils/constants/app.contants';
 import { filter } from 'rxjs';
 
 @Component({
@@ -55,7 +56,7 @@ export class UserProfileComponent implements OnInit {
   updateProfile() {
     debugger;
     this.userManagementService.updateUsers(this.userProfileForm.value).subscribe(e => {
-      if (e.toUpperCase() == 'SUCCESS') {
+      if (e.toUpperCase() == HTTP_RESPONSE.SUCCESS) {
         let notification: INotification = {
           type: e.toLowerCase(),
           message: 'User profile updated!'

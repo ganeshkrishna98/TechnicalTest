@@ -20,6 +20,6 @@ export class UserManagementService {
     return this.http.post(API_URLS.UPDATE_USERS,payload, {responseType: 'text'});
   }
   deleteUsers(payload: any): Observable<any>{
-    return this.http.post(API_URLS.DELETE_USERS,payload);
+    return this.http.delete(API_URLS.DELETE_USERS,{body:payload});
   }
 }

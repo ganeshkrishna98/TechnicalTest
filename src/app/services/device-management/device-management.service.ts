@@ -17,9 +17,9 @@ export class DeviceManagementService {
     return this.http.post<any[]>(API_URLS.CREATE_DEVICES,payload);
   }
   updateDevices(payload: any): Observable<any>{
-    return this.http.post(API_URLS.UPDATE_DEVICES,payload);
+    return this.http.post(API_URLS.UPDATE_DEVICES,payload, {responseType: 'text'});
   }
   deleteDevices(payload: any): Observable<any>{
-    return this.http.post(API_URLS.DELETE_DEVICES,payload);
+    return this.http.delete(API_URLS.DELETE_DEVICES,{body:payload});
   }
 }

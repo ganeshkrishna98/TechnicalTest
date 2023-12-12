@@ -17,9 +17,9 @@ export class StorageManagementService {
     return this.http.post<any[]>(API_URLS.CREATE_STORAGES,payload);
   }
   updateStorages(payload: any): Observable<any>{
-    return this.http.post(API_URLS.UPDATE_STORAGES,payload);
+    return this.http.post(API_URLS.UPDATE_STORAGES,payload, {responseType: 'text'});
   }
   deleteStorages(payload: any): Observable<any>{
-    return this.http.post(API_URLS.DELETE_STORAGES,payload);
+    return this.http.post(API_URLS.DELETE_STORAGES,{body:payload});
   }
 }

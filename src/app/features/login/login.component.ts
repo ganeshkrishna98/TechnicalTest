@@ -9,6 +9,7 @@ import { ActivatedRoute, Router } from '@angular/router';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
+
   loginForm: FormGroup;
 
   constructor(
@@ -48,5 +49,8 @@ export class LoginComponent implements OnInit {
         }
       );
     }
+  }
+  redirectToRegister() {
+    this.router.navigate(['/register'])
   }
 }

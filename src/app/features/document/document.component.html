@@ -48,7 +48,6 @@
                                     <span class="material-icons ml-small" [ngClass]="{'active' : selectedAction == 'UPDATE'}" (click)="updateDocument()">edit</span>
                                     <span class="material-icons ml-small" (click)="deleteDocument()">delete</span>
                                     <span class="material-icons ml-small" (click)="downloadDocument()">get_app</span>    
-                                    <span class="material-icons ml-small">remove_red_eye</span>
                                 </div>
                             </div>
                             <table class="detail-table" *ngIf="!documentForm.value.documentId">

@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 
 import { AccessLogsRoutingModule } from './access-logs-routing.module';
 import { AccessLogsComponent } from './access-logs.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -10,6 +11,7 @@ import { AccessLogsComponent } from './access-logs.component';
   ],
   imports: [
     CommonModule,
+    ReactiveFormsModule,
     AccessLogsRoutingModule
   ]
 })

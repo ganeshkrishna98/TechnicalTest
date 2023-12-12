@@ -6,6 +6,7 @@ import { SharedService } from 'app/services/shared/shared.service';
 import { UserManagementService } from 'app/services/user-management/user-management.service';
 import { INotification } from 'app/shared/notification/notification.component';
 import { NotificationService } from 'app/shared/notification/notification.service';
+import { HTTP_RESPONSE } from 'app/utils/constants/app.contants';
 import { filter, map } from 'rxjs';
 
 @Component({
@@ -63,11 +64,11 @@ export class CreateDocumentComponent implements OnInit {
     let payload = {...this.createDocumentForm.value};
     delete payload.fileName_;
     this.documentService.uploadDocument(this.formData).subscribe(e => {
-      if(e.toUpperCase() == 'SUCCESS'){
+      if(e.toUpperCase() == HTTP_RESPONSE.SUCCESS){
         this.documentService.createDocument(this.createDocumentForm.value).subscribe(e => {
-          if (e.toUpperCase() == 'SUCCESS') {
+          if (e.toUpperCase() == HTTP_RESPONSE.SUCCESS) {
             let notification: INotification = {
-              type: 'success', message: 'Document created successfully!'
+              type: HTTP_RESPONSE.SUCCESS, message: 'Document created successfully!'
             }
             this.notificationService.notification(notification)
             this.router.navigate(['/document-management'])
@@ -75,7 +76,7 @@ export class CreateDocumentComponent implements OnInit {
         })
       }else{
         let notification: INotification = {
-          type: 'error', message: 'Document create failed!'
+          type: "danger", message: 'Document create failed!'
         }
         this.notificationService.notification(notification)
       }

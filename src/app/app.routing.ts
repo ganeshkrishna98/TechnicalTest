@@ -71,13 +71,6 @@ const routes: Routes = [
   }
 ];
 
-// export function matcher (url: UrlSegment[]): UrlMatcher {
-//   if (url.length > 0 && url[0].path === path) {
-//      return { consumed: [url[0]] };
-//   }
-//   return null;
-// }
-
 @NgModule({
   imports: [
     CommonModule,

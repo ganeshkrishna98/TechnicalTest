@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 
 import { StorageManagementRoutingModule } from './storage-management-routing.module';
 import { StorageManagementComponent } from './storage-management.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -10,6 +11,7 @@ import { StorageManagementComponent } from './storage-management.component';
   ],
   imports: [
     CommonModule,
+    ReactiveFormsModule,
     StorageManagementRoutingModule
   ]
 })

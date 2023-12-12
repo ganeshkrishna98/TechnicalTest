@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 
 import { DeviceManagementRoutingModule } from './device-management-routing.module';
 import { DeviceManagementComponent } from './device-management.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -10,6 +11,7 @@ import { DeviceManagementComponent } from './device-management.component';
   ],
   imports: [
     CommonModule,
+    ReactiveFormsModule,
     DeviceManagementRoutingModule
   ]
 })

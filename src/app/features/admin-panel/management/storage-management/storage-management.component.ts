@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { SharedService } from 'app/services/shared/shared.service';
 import { StorageManagementService } from 'app/services/storage-management/storage-management.service';
 import { FormControl, FormGroup } from '@angular/forms';
+import { INotification } from 'app/shared/notification/notification.component';
+import { HTTP_RESPONSE } from 'app/utils/constants/app.contants';
+import { NotificationService } from 'app/shared/notification/notification.service';
 
 @Component({
   selector: 'app-storage-management',
@@ -18,16 +21,20 @@ export class StorageManagementComponent implements OnInit {
     createdUserId: new FormControl(''),
     createdUserName: new FormControl('')
   });
-  constructor(private sharedService: SharedService, private storageManagementService: StorageManagementService) { 
+  selectedAction: string;
+  constructor(private sharedService: SharedService, private storageManagementService: StorageManagementService, private notificationService: NotificationService) { 
     this.sharedService.setTitle(this.title);
   }
   isSelected: boolean = false;
   tableData: any[] = [];
-  selectedItem: any;
+  selectedItem: any = 'VIEW';
   ngOnInit(): void {
     this.fetchData();
   }
   fetchData() {
+    this.selectedAction = 'VIEW'
+    this.isSelected = false;
+    this.selectedItem = {};
     this.storageManagementService.readStorages().subscribe(
       (data: any[]) => {
         this.tableData = data; 
@@ -42,6 +49,46 @@ export class StorageManagementComponent implements OnInit {
     console.log(data);
     this.isSelected = true;
     this.selectedItem = data
+  }
+
+  deleteItem(){
+    this.storageManagementService.deleteStorages(this.selectedItem).subscribe(e => {
+      if(e){
+        let notification: INotification = {
+          type: HTTP_RESPONSE.SUCCESS, message: 'Storage deleted!'
+        }
+        this.notificationService.notification(notification)
+        this.fetchData();
+      }
+    })
+  }
+
+  editItem(){
+    Object.keys(this.selectedItem).forEach(e => {
+      this.storageForm.get(`${e}`).setValue(this.selectedItem[e]);
+      });
+    this.selectedAction = 'UPDATE'
+  }
+
+  editAction(){
+    this.storageManagementService.updateStorages(this.storageForm.value).subscribe(e => {
+      if(e.toUpperCase() == HTTP_RESPONSE.SUCCESS){
+        let notification: INotification = {
+          type: HTTP_RESPONSE.SUCCESS, message: 'Storage deleted!'
+        }
+        this.notificationService.notification(notification)
+        this.fetchData();
+      }
+    })
+  }
+
+  backAction(){
+    if(this.selectedAction == 'VIEW'){
+      this.isSelected = false;
+    }else{
+      this.selectedAction = 'VIEW';
+      this.storageForm.reset()
+    }
   }
 
 }

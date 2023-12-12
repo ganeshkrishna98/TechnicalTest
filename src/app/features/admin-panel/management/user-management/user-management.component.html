@@ -88,7 +88,7 @@
                                         <td>&#58;</td>
                                         <td>
                                             <input type="text" class="form-control" id="userId"
-                                                formControlName="userId" />
+                                                formControlName="userId" [disabled]="true"/>
                                         </td>
                                     </tr>
                                     <tr>
@@ -127,19 +127,23 @@
                                         <td>Account Type</td>
                                         <td>&#58;</td>
                                         <td>
-                                            <input type="text" class="form-control" id="accountType"
-                                                formControlName="accountType" />
+                                            <!-- <input type="text" class="form-control" id="accountType"
+                                                formControlName="accountType" /> -->
+                                            <select class="custom-select" (change)="changeAccountType($event)" formControlName="accountType">
+                                                <option value="" [disabled]>Choose account type</option>
+                                                <option *ngFor="let item of accountTypes" [value]="item">{{item}}</option>
+                                                </select>
                                         </td>
                                     </tr>
                                 </table>
                             </form>
                             <div class="action-button-wrapper">
                                 <div class="d-flex">
-                                    <button class="btn btn-warning btn-block" (click)="isSelected=false">Back</button>
+                                    <button class="btn btn-warning btn-block" (click)="backAction()">Back</button>
                                     <button class="btn btn-warning btn-block ml-small"
-                                        (click)="updateDocument()">Update</button>
+                                        (click)="selectedAction == 'VIEW' ? updateUser() : updateAction()">Update</button>
                                     <button class="btn btn-warning btn-block ml-small"
-                                        (click)="deleteDocument()">Delete</button>
+                                       (click)="deleteItem()" *ngIf="selectedAction !== 'UPDATE'">Delete</button>
                                 </div>
                             </div>
 

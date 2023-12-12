@@ -4,9 +4,12 @@
             <div class="col-md-12">
                 <div class="card">
                     <div class="card-header card-header-danger">
-                        <h4 class="card-title ">Devices</h4>                        
+                        <h4 class="card-title ">Devices</h4>
                     </div>
                     <div class="card-body table-responsive" *ngIf="!isSelected">
+                        <div>
+                            <button class="btn btn-warning btn-block" (click)="createDevice()">Create device</button>
+                        </div>
                         <table class="document-table table-hover document-table">
                             <thead class="text-warning">
                                 <tr>
@@ -42,7 +45,8 @@
                     </div>
                     <div *ngIf="isSelected">
                         <div class="card-body table-responsive" *ngIf="isSelected">
-                            <table class="detail-table" *ngIf="!deviceForm.value.deviceId">
+
+                            <table class="detail-table" *ngIf="selectedAction == 'VIEW'">
                                 <tbody>
                                     <tr>
                                         <td>Id</td>
@@ -86,7 +90,8 @@
                                     </tr>
                                 </tbody>
                             </table>
-                            <form *ngIf="deviceForm.value.deviceId" [formGroup]="deviceForm">
+                            <form *ngIf="selectedAction == 'UPDATE' || selectedAction == 'CREATE'"
+                                [formGroup]="deviceForm">
                                 <table class="detail-table">
                                     <tr>
                                         <td>Id</td>
@@ -156,22 +161,18 @@
                             </form>
                             <div class="action-button-wrapper">
                                 <div class="d-flex">
-                                    <button class="btn btn-warning btn-block" (click)="isSelected=false">Back</button>
+                                    <button class="btn btn-warning btn-block" (click)="backAction()">Back</button>
                                     <button class="btn btn-warning btn-block ml-small"
-                                        (click)="updateDocument()">Edit</button>
-                                    <button class="btn btn-warning btn-block ml-small"
-                                        (click)="deleteDocument()">Delete</button>
-                                    <button class="btn btn-warning btn-block ml-small">Download</button>
-                                    <button class="btn btn-warning btn-block ml-small">View</button>
-                                    <button class="btn btn-warning btn-block ml-small">Approve</button>
+                                        *ngIf="selectedAction !== 'CREATE'"
+                                        (click)="selectedAction !== 'UPDATE' ? editItem() : editAction()">Edit</button>
+                                    <button class="btn btn-warning btn-block ml-small" (click)="deleteItem()"
+                                        *ngIf="selectedAction !== 'UPDATE' && selectedAction !== 'CREATE'">Delete</button>
                                 </div>
                             </div>
-
                         </div>
                     </div>
                 </div>
-            </div>            
+            </div>
         </div>
     </div>
-  </div>
-  
+</div>

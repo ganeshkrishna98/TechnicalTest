@@ -1,1 +1,19 @@
-<p>register works!</p>
+<div class="card">
+    <div class="register-container">
+       <form [formGroup]="registerForm" autocomplete="off">
+         <label>Email:</label>
+         <input autocomplete="off" type="text" formControlName="email" required placeholder="Email">
+         <label>Password:</label>
+         <input autocomplete="off" type="password" formControlName="password" required placeholder="Password">
+         <div formGroupName="userAccounts">
+            <label>Name:</label>
+            <input autocomplete="off" type="text" formControlName="userName" required placeholder="Name">
+         </div>
+         <div class="d-flex">
+           <button type="submit" class="btn btn-warning btn-block ml-small" (click)="resetForm()">Reset</button>
+           <button type="register" class="btn btn-warning btn-block ml-small" (click)="onCreate()">Create</button>
+         </div>
+       </form>
+       
+     </div>
+   </div>
