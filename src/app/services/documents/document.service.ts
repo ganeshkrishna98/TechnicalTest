@@ -23,7 +23,7 @@ export class DocumentService {
     return this.http.delete(API_URLS.DELETE_DOC, {body:payload});
   }
   uploadDocument(payload: any): Observable<any>{
-    return this.http.post(API_URLS.UPLOAD_DOC,payload);
+    return this.http.post(API_URLS.UPLOAD_DOC,payload, {responseType: 'text'});
   }
   downloadDocument(payload: any): Observable<any>{
     return this.http.get(API_URLS.DOWNLOAD_DOC(payload.fileName));

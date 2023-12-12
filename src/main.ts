@@ -24,6 +24,9 @@ import 'hammerjs';
 
 if (environment.production) {
   enableProdMode();
+}else{
+  const platform = platformBrowserDynamic();
+  window['injector'] = platform.injector;
 }
 
 platformBrowserDynamic().bootstrapModule(AppModule);

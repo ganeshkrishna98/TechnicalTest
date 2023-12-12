@@ -21,10 +21,6 @@ const routes: Routes = [
     loadChildren: () => import('./features/user-profile/user-profile.module').then(m => m.UserProfileModule)
   },
   {
-    path: 'notifications',
-    loadChildren: () => import('./features/notifications/notifications.module').then(m => m.NotificationsModule)
-  },
-  {
     path: 'create-document',
     loadChildren: () => import('./features/create-document/create-document.module').then(m => m.CreateDocumentModule)
   },
@@ -38,16 +34,8 @@ const routes: Routes = [
     loadChildren: () => import('./features/admin-panel/management/access-logs/access-logs.module').then(m => m.AccessLogsModule)
   },
   {
-    path: 'database-management',
-    loadChildren: () => import('./features/admin-panel/management/database-management/database-management.module').then(m => m.DatabaseManagementModule)
-  },
-  {
     path: 'device-management',
     loadChildren: () => import('./features/admin-panel/management/device-management/device-management.module').then(m => m.DeviceManagementModule)
-  },
-  {
-    path: 'notification-management',
-    loadChildren: () => import('./features/admin-panel/management/notification-management/notification-management.module').then(m => m.NotificationManagementModule)
   },
   {
     path: 'storage-management',

@@ -29,20 +29,21 @@ export class UserProfileComponent implements OnInit {
   ngOnInit() {
     this.fetchData();
   }
-  userId: string = localStorage.token;
+  userId: string = localStorage.userId;
   fetchData() {
     this.userManagementService.readUsers()
     // .pipe(filter(e =>  e[0].userId == this.userId ? e[0] : null))
     .subscribe(
       (data) => {
         if (data.length > 0){
-          this.userProfileForm.controls.userId.setValue(data[0]['userId']);
-          this.userProfileForm.controls.userEmail.setValue(data[0]['userEmail']);
-          this.userProfileForm.controls.userName.setValue(data[0]['userName']);
-          this.userProfileForm.controls.lastAccessTime.setValue(data[0]['lastAccessTime']);
-          this.userProfileForm.controls.lastAccessDevice.setValue(data[0]['lastAccessDevice']);
-          this.userProfileForm.controls.lastAccessIp.setValue(data[0]['lastAccessIp']);
-          this.userProfileForm.controls.accountType.setValue(data[0]['accountType']);
+          let data_ = data.filter(e => e.userId == this.userId)[0];
+          this.userProfileForm.controls.userId.setValue(data_['userId']);
+          this.userProfileForm.controls.userEmail.setValue(data_['userEmail']);
+          this.userProfileForm.controls.userName.setValue(data_['userName']);
+          this.userProfileForm.controls.lastAccessTime.setValue(data_['lastAccessTime']);
+          this.userProfileForm.controls.lastAccessDevice.setValue(data_['lastAccessDevice']);
+          this.userProfileForm.controls.lastAccessIp.setValue(data_['lastAccessIp']);
+          this.userProfileForm.controls.accountType.setValue(data_['accountType']);
         }
         
       },
